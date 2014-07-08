@@ -1,0 +1,15 @@
+{
+  "name": "_",
+  "version": "0.0.0",
+  "description": "Functional goodness",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "keywords": [
+    "functional",
+    "util"
+  ],
+  "author": "Guilherme Nagatomo",
+  "license": "MIT"
+}
