@@ -2,6 +2,47 @@ var _ = require('../')
   , assert = require('assert')
 
 describe('_', function () {
+
+  describe('README code tests', function () {
+    it('should work property', function () {
+      var
+          // get all the even numbers from the list
+          getEvens = _.filter(_.isEven)
+
+          // double each number from the list
+        , doubleNumbers = _.map(_.double)
+
+          // sum all the numbers from the list
+        , sum = _.partial(_.reduce(_.sum), _, 0)
+
+        , numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+      assert.equal(sum(doubleNumbers(getEvens(numbers))), 40)
+
+      // or do the right way
+      var sumDoubleEvens = _.compose(sum, doubleNumbers, getEvens)
+
+      assert.equal(sumDoubleEvens(numbers), 40)
+    })
+  })
+
+  describe('#property()', function () {
+    it('should return a getter function for the property specified', function () {
+      var getFoo = _.property('foo')
+        , obj1 = { foo: 'foo' }
+        , obj2 = { foo: 'bar' }
+
+      assert.equal(getFoo(obj1), 'foo')
+      assert.equal(getFoo(obj2), 'bar')
+    })
+
+    it('should return undefined if the object does not contain the specified key', function () {
+      var getFoo = _.property('foo')
+      assert.equal(getFoo({}), undefined)
+    })
+  })
+
   describe('#sum()', function () {
     it('should sum properly', function () {
       assert.equal(_.sum(1, 2), 3)
