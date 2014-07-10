@@ -52,6 +52,35 @@ describe('_', function () {
     })
   })
 
+  describe('#reduce()', function () {
+    var list
+
+    beforeEach(function () {
+      list = [1, 2, 3]
+    })
+
+    it('should reduce the list to one value', function () {
+      var total = _.reduce(_.sum, list, 0)
+      assert.equal(total, 6)
+    })
+
+    it('should keep the list intact', function () {
+      var total = _.reduce(_.sum, list, 0)
+      assert.equal(total, 6)
+      assert.equal(list[0], 1)
+    })
+
+    it('should return a partial applied function if no list is passed', function () {
+      var sumReduce = _.reduce(_.sum)
+        , sum = sumReduce(list, 0)
+        , sum2 = sumReduce([2, 3, 4], 0)
+
+      assert.equal(sum, 6)
+      assert.equal(sum2, 9)
+      assert.equal(list[0], 1)
+    })
+  })
+
   /*describe('#curry()', function () {
     it('should return a function that wait for all arguments to be passed before executing', function () {
     })
