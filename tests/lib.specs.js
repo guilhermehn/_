@@ -40,6 +40,34 @@ describe('_', function () {
     })
   })
 
+  describe('#isEven()', function () {
+    it('should return true if number is even', function () {
+      assert(_.isEven(2))
+      assert(!_.isEven(3))
+      assert(!_.isEven(2.456))
+    })
+  })
+
+  describe('#isOdd()', function () {
+    it('should return true if number is odd', function () {
+      assert(_.isOdd(3))
+      assert(!_.isOdd(2))
+    })
+  })
+
+  describe('#compose()', function () {
+    it('should compose the functions into one', function () {
+      var addAndDouble = _.compose(_.double, _.addOne)
+        , addAndDoubleLists = _.map(addAndDouble)
+
+      assert.equal(addAndDouble(1), 4)
+      assert.equal(addAndDouble(2), 6)
+      assert.equal(addAndDouble(3), 8)
+
+      assert.deepEqual(addAndDoubleLists([1, 2, 3]), [4, 6, 8])
+    })
+  })
+
   describe('#map()', function () {
     var list, mapped
 
