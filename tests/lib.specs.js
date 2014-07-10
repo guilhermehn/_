@@ -81,6 +81,19 @@ describe('_', function () {
     })
   })
 
+  describe('#forEach()', function () {
+    it('should run a function for every item on list', function () {
+      var list = [1, 2, 3]
+        , listx = []
+
+      _.forEach(function (item, i, xs) {
+        listx[listx.length] = item.toString()
+      }, list)
+
+      assert.deepEqual(listx, ['1', '2', '3'])
+    })
+  })
+
   /*describe('#curry()', function () {
     it('should return a function that wait for all arguments to be passed before executing', function () {
     })
