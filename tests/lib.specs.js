@@ -57,12 +57,12 @@ describe('_', function () {
     })
   })
 
-  describe('#addOne()', function () {
+  describe('#inc()', function () {
     it('should add one', function () {
       var a = 1
       assert.equal(a, 1)
 
-      a = _.addOne(a)
+      a = _.inc(a)
       assert.equal(a, 2)
     })
   })
@@ -73,10 +73,10 @@ describe('_', function () {
     })
   })
 
-  describe('#subtractOne()', function () {
+  describe('#dec()', function () {
     it('should subtract one', function () {
-      assert.equal(_.subtractOne(5), 4)
-      assert.equal(_.subtractOne(5.5), 4.5)
+      assert.equal(_.dec(5), 4)
+      assert.equal(_.dec(5.5), 4.5)
     })
   })
 
@@ -119,7 +119,7 @@ describe('_', function () {
 
   describe('#compose()', function () {
     it('should compose the functions into one', function () {
-      var addAndDouble = _.compose(_.double, _.addOne)
+      var addAndDouble = _.compose(_.double, _.inc)
         , addAndDoubleLists = _.map(addAndDouble)
 
       assert.equal(addAndDouble(1), 4)
@@ -132,7 +132,7 @@ describe('_', function () {
 
   describe('#sequence()', function () {
     it('should run the given functions in sequence', function () {
-      var addAndDouble = _.sequence(_.addOne, _.double)
+      var addAndDouble = _.sequence(_.inc, _.double)
         , addAndDoubleLists = _.map(addAndDouble)
 
       assert.equal(addAndDouble(1), 4)
