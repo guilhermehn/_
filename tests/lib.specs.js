@@ -140,6 +140,25 @@ describe('_', function () {
     })
   })
 
+  describe('#some()', function () {
+    it('should return true if any the callback returns true', function () {
+      var list = [1, 2, 3]
+
+      assert(_.some(_.isEven, list))
+    })
+
+    it('should return undefined if no callback returns true', function () {
+      assert.equal(_.some(_.isEven, [1, 3, 5, 7, 9]), false)
+    })
+
+    it('should not modify the original list', function () {
+      var list = [1, 2, 3]
+
+      assert(_.some(_.isEven, list))
+      assert.deepEqual(list, [1, 2, 3])
+    })
+  })
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined)
