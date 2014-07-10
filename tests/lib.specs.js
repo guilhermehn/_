@@ -31,6 +31,19 @@ describe('_', function () {
     })
   })
 
+  describe('#multiply()', function () {
+    it('should multiply two numbers', function () {
+      assert.equal(_.multiply(2, 3), 6)
+    })
+  })
+
+  describe('#divide()', function () {
+    it('should divide', function () {
+      assert.equal(_.divide(4, 2), 2)
+      assert.equal(_.divide(5, 2), 2.5)
+    })
+  })
+
   describe('#double()', function () {
     it('should return the double of the number', function () {
       assert.equal(_.double(2), 4)
