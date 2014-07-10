@@ -120,8 +120,17 @@ describe('_', function () {
     })
   })
 
-  /*describe('#curry()', function () {
-    it('should return a function that wait for all arguments to be passed before executing', function () {
+  describe('#partial()', function () {
+    it('should return a function with partial applied arguments', function () {
+      var partialSum = _.partial(_.sum, 1, undefined)
+
+      assert.equal(partialSum(1), 2)
     })
-  })*/
+
+    it('should accept module global for skipping arguments', function () {
+      var partialSum = _.partial(_.sum, _, 1)
+
+      assert.equal(partialSum(1), 2)
+    })
+  })
 })
