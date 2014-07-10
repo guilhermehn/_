@@ -159,6 +159,32 @@ describe('_', function () {
     })
   })
 
+  describe('#every()', function () {
+    it('should return true if every callback execution returns true', function () {
+      var list = [1, 2, 3]
+
+      assert(_.every(function (item) {
+        return item > 0
+      }))
+    })
+
+    it('should not modify the original list', function () {
+      var list = [1, 2, 3]
+
+      assert(_.every(function (item) {
+        return item > 0
+      }))
+
+      assert.deepEqual(list, [1, 2, 3])
+    })
+
+    it('should return a partial applied function if no list is passed', function () {
+      var allEven = _.every(_.isEven)
+
+      assert(allEven([1, 2]) === false)
+    })
+  })
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined)
