@@ -2,31 +2,6 @@ var _ = require('../')
   , assert = require('assert')
 
 describe('_', function () {
-
-  describe('README code tests', function () {
-    it('should work property', function () {
-      var
-          // get all the even numbers from the list
-          getEvens = _.filter(_.isEven)
-
-          // double each number from the list
-        , doubleNumbers = _.map(_.double)
-
-          // sum all the numbers from the list
-        , sum = _.partial(_.reduce(_.sum), _, 0)
-
-        , numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-
-      assert.equal(sum(doubleNumbers(getEvens(numbers))), 40)
-
-      // or do the right way
-      var sumDoubleEvens = _.compose(sum, doubleNumbers, getEvens)
-
-      assert.equal(sumDoubleEvens(numbers), 40)
-    })
-  })
-
   describe('#property()', function () {
     it('should return a getter function for the property specified', function () {
       var getFoo = _.property('foo')
@@ -291,6 +266,30 @@ describe('_', function () {
       var partialSum = _.partial(_.sum, _, 1)
 
       assert.equal(partialSum(1), 2)
+    })
+  })
+
+  describe('README code tests', function () {
+    it('should work property', function () {
+      var
+          // get all the even numbers from the list
+          getEvens = _.filter(_.isEven)
+
+          // double each number from the list
+        , doubleNumbers = _.map(_.double)
+
+          // sum all the numbers from the list
+        , sum = _.partial(_.reduce(_.sum), _, 0)
+
+        , numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+      assert.equal(sum(doubleNumbers(getEvens(numbers))), 40)
+
+      // or do the right way
+      var sumDoubleEvens = _.compose(sum, doubleNumbers, getEvens)
+
+      assert.equal(sumDoubleEvens(numbers), 40)
     })
   })
 })
