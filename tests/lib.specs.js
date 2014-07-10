@@ -18,6 +18,15 @@ describe('_', function () {
     })
   })
 
+  describe('#toArray()', function () {
+    it('should convert to array', function () {
+      var args = _.toArray(arguments)
+
+      assert(!(arguments instanceof Array))
+      assert(args instanceof Array)
+    })
+  })
+
   describe('#sum()', function () {
     it('should sum properly', function () {
       assert.equal(_.sum(1, 2), 3)
