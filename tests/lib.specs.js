@@ -120,6 +120,26 @@ describe('_', function () {
     })
   })
 
+  describe('#filter()', function () {
+    it('should remove a item from the result if it return false from the function', function () {
+      assert.deepEqual(_.filter(_.isEven, [1, 2, 3]), [2])
+    })
+
+    it('should return a partial applied function if no list is passed', function () {
+      var getOdds = _.filter(_.isOdd)
+
+      assert.deepEqual(getOdds([1, 2, 3]), [1, 3])
+    })
+
+    it('should not modify the original list', function () {
+      var list = [1, 2, 3, 4]
+        , getEvens = _.filter(_.isEven)
+
+      getEvens(list)
+      assert.deepEqual(list, [1, 2, 3, 4])
+    })
+  })
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined)
