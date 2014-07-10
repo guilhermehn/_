@@ -68,6 +68,19 @@ describe('_', function () {
     })
   })
 
+  describe('#sequence()', function () {
+    it('should run the given functions in sequence', function () {
+      var addAndDouble = _.sequence(_.addOne, _.double)
+        , addAndDoubleLists = _.map(addAndDouble)
+
+      assert.equal(addAndDouble(1), 4)
+      assert.equal(addAndDouble(2), 6)
+      assert.equal(addAndDouble(3), 8)
+
+      assert.deepEqual(addAndDoubleLists([1, 2, 3]), [4, 6, 8])
+    })
+  })
+
   describe('#map()', function () {
     var list, mapped
 
