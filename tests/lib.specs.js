@@ -1,0 +1,59 @@
+var _ = require('../')
+  , assert = require('assert')
+
+describe('_', function () {
+  describe('#sum()', function () {
+    it('should sum properly', function () {
+      assert.equal(_.sum(1, 2), 3)
+    })
+  })
+
+  describe('#addOne()', function () {
+    it('should add one', function () {
+      var a = 1
+      assert.equal(a, 1)
+
+      a = _.addOne(a)
+      assert.equal(a, 2)
+    })
+  })
+
+  describe('#double()', function () {
+    it('should return the double of the number', function () {
+      assert.equal(_.double(2), 4)
+      assert.equal(_.double(5), 10)
+      assert.equal(_.double(2.5), 5)
+      assert.equal(_.double(3.3), 6.6)
+    })
+  })
+
+  describe('#map()', function () {
+    var list, mapped
+
+    beforeEach(function () {
+      list = [1, 2, 3]
+      mapped = _.map(_.double, list)
+    })
+
+    it('should map a list to a new list passed through a function', function () {
+      assert.equal(mapped[0], 2)
+    })
+
+    it('should keep the original list intact', function () {
+      assert.equal(mapped[0], 2)
+      assert.equal(list[0], 1)
+    })
+
+    it('should return a map function if no list is passed', function () {
+      var doubleList = _.map(_.double)
+        , doubled = doubleList(list)
+
+      assert.equal(doubled[0], 2)
+    })
+  })
+
+  /*describe('#curry()', function () {
+    it('should return a function that wait for all arguments to be passed before executing', function () {
+    })
+  })*/
+})
