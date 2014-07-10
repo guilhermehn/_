@@ -18,6 +18,19 @@ describe('_', function () {
     })
   })
 
+  describe('#subtract()', function () {
+    it('should subtract numbers', function () {
+      assert.equal(_.subtract(2, 1), 1)
+    })
+  })
+
+  describe('#subtractOne()', function () {
+    it('should subtract one', function () {
+      assert.equal(_.subtractOne(5), 4)
+      assert.equal(_.subtractOne(5.5), 4.5)
+    })
+  })
+
   describe('#double()', function () {
     it('should return the double of the number', function () {
       assert.equal(_.double(2), 4)
