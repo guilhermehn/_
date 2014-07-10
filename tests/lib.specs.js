@@ -92,6 +92,19 @@ describe('_', function () {
 
       assert.deepEqual(listx, ['1', '2', '3'])
     })
+
+    it('should patial apply the function when no list is passed', function () {
+      var counter = 0
+        , incCounter = _.forEach(inc)
+
+      function inc () {
+        counter += 1
+      }
+
+      incCounter([1, 2, 3, 4, 5])
+
+      assert.equal(counter, 5)
+    })
   })
 
   /*describe('#curry()', function () {
