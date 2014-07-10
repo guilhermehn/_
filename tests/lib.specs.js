@@ -2,6 +2,15 @@ var _ = require('../')
   , assert = require('assert')
 
 describe('_', function () {
+  describe('#curry()', function () {
+    it('should make the function wait for all arguments to be passed before running', function () {
+      var curried = _.curry(function (a, b, c) { return [a, b, c] })
+        , oneTwo = curried(1, 2)
+
+      assert.deepEqual(curried(1)(2)(3), [1, 2, 3])
+      assert.deepEqual(oneTwo(3), [1, 2, 3])
+    })
+  })
   describe('#property()', function () {
     it('should return a getter function for the property specified', function () {
       var getFoo = _.property('foo')
