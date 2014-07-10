@@ -11,6 +11,7 @@ describe('_', function () {
       assert.deepEqual(oneTwo(3), [1, 2, 3])
     })
   })
+
   describe('#property()', function () {
     it('should return a getter function for the property specified', function () {
       var getFoo = _.property('foo')
@@ -33,6 +34,20 @@ describe('_', function () {
 
       assert(!(arguments instanceof Array))
       assert(args instanceof Array)
+    })
+  })
+
+  describe('#replace()', function () {
+    it('should take the items from the corresponding indexes', function () {
+      var list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+      assert.deepEqual(_.replace([0, 2, 4], list), [1, 3, 5])
+    })
+
+    it('should return undefined when index is out of bounds', function () {
+      var list = [1, 2, 3]
+
+      assert.deepEqual(_.replace([0, 4], list), [1, undefined])
     })
   })
 
