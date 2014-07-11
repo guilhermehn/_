@@ -277,7 +277,7 @@ Arguments:
 ***
 
 ## TODO
-[ ] Publish to NPM
-[ ] Complete API docs
-[ ] Make wiki
-[ ] More functions (Yay!)
+- [ ] Publish to NPM
+- [ ] Complete API docs
+- [ ] Make wiki
+- [ ] More functions (Yay!)
