@@ -175,7 +175,7 @@ Arguments:
 
 #### #pluck() ####
 
-`_.every(String [, Array])`
+`_.pluck(String [, Array])`
 
 Arguments:
 - `String`: property to be retrieved from all the items of the list
