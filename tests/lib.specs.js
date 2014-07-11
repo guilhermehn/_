@@ -117,6 +117,17 @@ describe('_', function () {
     })
   })
 
+  describe('#isNumber()', function () {
+    it('should return true if argument is a number', function () {
+      assert(_.isNumber(1))
+    })
+
+    it('should return false if value is anything but a number', function () {
+      var invalidValues = ['1', undefined, null, true, false, {}]
+      assert(_.none(_.isNumber, invalidValues))
+    })
+  })
+
   describe('#compose()', function () {
     it('should compose the functions into one', function () {
       var addAndDouble = _.compose(_.double, _.inc)
