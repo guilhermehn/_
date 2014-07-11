@@ -18,12 +18,12 @@ var _ = require('fundash')
 
 sum(
     doubleNumbers(
-        getEvens(numbers))) // [4, 8, 12, 16]
+        getEvens(numbers))) // [4, 8, 12, 16] -> 40
 
 // or do the right way
 var sumDoubleEvens = _.compose(sum, doubleNumbers, getEvents)
 
-sumDoubleEvens(numbers) // [4, 8, 12, 16]
+sumDoubleEvens(numbers) // [4, 8, 12, 16] -> 40
 ```
 
 ## Installation ##
