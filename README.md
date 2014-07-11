@@ -25,12 +25,14 @@ var sumDoubleEvens = _.compose(sum, doubleNumbers, getEvents)
 sumDoubleEvens(numbers) // [4, 8, 12, 16]
 ```
 
-### Attention: This Is Not A Lodash/Underscore Replacement ###
+#### Attention: This Is Not A Lodash/Underscore Replacement ####
 To use it with Lodash/Underscore, `require` it to another namespace
 
 ## API ##
 
-### #map() ###
+### List functions ###
+
+#### #map() ####
 
 `_.map(Function [, Array])`
 
@@ -38,7 +40,7 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-#### Example: ###
+##### Example: ####
     function increment (a) {
       return a + 1
     }
@@ -53,7 +55,7 @@ Arguments:
 
 ***
 
-### #reduce() ###
+#### #reduce() ####
 
 `_.reduce(Function [, Array, initial])`
 
@@ -62,7 +64,7 @@ Arguments:
 - `Array`
 - `initial`: *
 
-#### Example: ###
+##### Example: ####
     var list = [1, 2, 3]
 
     _.reduce(_.sum, list, 0) // 6
@@ -73,7 +75,7 @@ Arguments:
 
 ***
 
-### #forEach() ###
+#### #forEach() ####
 
 `_.forEach(Function [, Array])`
 
@@ -81,7 +83,7 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-#### Example: ###
+##### Example: ####
     var evens = []
       , odds = []
       , list = [1, 2, 3, 4, 5]
@@ -107,7 +109,7 @@ Arguments:
 
 ***
 
-### #filter() ###
+#### #filter() ####
 
 `_.filter(Function [, Array])`
 
@@ -115,7 +117,7 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-#### Example: ###
+##### Example: ####
     var list = [1, 2, 3, 4, 5]
       , evens
       , odds
@@ -134,7 +136,7 @@ Arguments:
 
 ***
 
-### #some() ###
+#### #some() ####
 
 `_.some(Function [, Array])`
 
@@ -142,7 +144,7 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-#### Example: ###
+##### Example: ####
     _.some(_.isEven, [1, 2, 3]) // true
     _.some(_.isEven, [3, 5, 7]) // false
     _.some(_.isOdd, [2, 3, 4])  // true
@@ -153,7 +155,7 @@ Arguments:
 
 ***
 
-### #every() ###
+#### #every() ####
 
 `_.every(Function [, Array])`
 
@@ -161,12 +163,35 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-#### Example: ###
+##### Example: ####
     _.every(_.isEven, [1, 2, 3]) // flase
     _.every(_.isOdd, [3, 5, 7])  // true
 
     var onlyEvens = _.every(_.isEven)
 
     onlyEvens([1, 2, 3]) // false
+
+***
+
+#### #pluck() ####
+
+`_.every(String [, Array])`
+
+Arguments:
+- `String`: property to be retrieved from all the items of the list
+- `Array`
+
+##### Example: ####
+    var collection = [
+      { foo: 'foo' },
+      { foo: 'bar' },
+      { prop: 'erty' }
+    ]
+
+    _.pluck('foo', collection) // ['foo', 'bar', undefined]
+
+    var getFoos = _.pluck('foo')
+
+    getFoos(collection) // ['foo', 'bar', undefined]
 
 ***
