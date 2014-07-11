@@ -288,6 +288,35 @@ describe('_', function () {
     })
   })
 
+  describe('#pluck()', function () {
+    var objs = [
+      {
+        foo: 'foo'
+      },
+      {
+        foo: 'bar'
+      }
+    ]
+
+    it('should get the respective key from every object of the list', function () {
+      assert.deepEqual(_.pluck('foo', objs), ['foo', 'bar'])
+    })
+
+    it('should return "undefined" if the object does not contain the key', function () {
+      objs.push({ bar: 'foo' })
+
+      var foos = _.pluck('foo', objs)
+
+      assert.equal(foos[2], undefined)
+    })
+
+    it('should return a partial applied function if no list is passed', function () {
+      var getFoos = _.pluck('foo')
+
+      assert.deepEqual(getFoos(objs), ['foo', 'bar', undefined])
+    })
+  })
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined)
