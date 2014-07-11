@@ -288,6 +288,12 @@ describe('_', function () {
     })
   })
 
+  describe('#none()', function () {
+    it('should return true if none of the callbacks return true', function () {
+      assert(_.none(_.isEven, [1, 3, 5]))
+    })
+  })
+
   describe('#pluck()', function () {
     var objs = [
       {
