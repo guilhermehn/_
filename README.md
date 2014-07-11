@@ -196,6 +196,25 @@ Arguments:
 
 ***
 
+#### #replace() ####
+
+`_.replace(Array [, Array])`
+
+Arguments:
+- `Array`: list of indexes to get from second `Array` argument
+- `Array`
+
+##### Example: ####
+    var list = [9, 8, 7, 6, 5]
+
+    _.replace([0, 2, 4], list) // [9, 7, 5]
+
+    var getFirstThreeItems = _.replace([0, 1, 2])
+
+    getFirstThreeItems(list) // [9, 8, 7]
+
+***
+
 ### Functions ###
 
 #### #partial() ####
