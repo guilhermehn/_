@@ -240,7 +240,7 @@ Arguments:
 
 Arguments:
 - `Function`: Function to be curryied
-- `argumentsSize`: `int`: quantity of arguments that `Function` will receive. Must be provided if `Function`'s arity is incorrect
+- `argumentsSize`: `int`: quantity of arguments that `Function` will receive. *Must be provided if `Function`'s arity is incorrect*
 
 ##### Example: ####
     var curry = _.curry(function (a, b, c) {
