@@ -57,6 +57,16 @@ describe('_', function () {
     })
   })
 
+  describe('#sumAll()', function () {
+    it('should sum all the items from the list', function () {
+      assert.equal(_.sumAll([1, 2, 3]), 6)
+    })
+
+    it('should skip non numbers', function () {
+      assert.equal(_.sumAll(['1', 1, undefined, 2, 3]), 6)
+    })
+  })
+
   describe('#inc()', function () {
     it('should add one', function () {
       var a = 1
