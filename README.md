@@ -280,6 +280,21 @@ Arguments:
 
 ***
 
+#### #compose()
+
+`_.compose(Function, Function [, Function, ...])`
+
+Arguments:
+- `Function`: Compose a function from given functions from right to left
+
+**Example:**
+
+    var sumEvens = _.compose(_.sumAll, _.filter(_.isEven))
+
+    sumEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]) // 20
+
+***
+
 ## TODO
 - [ ] Publish to NPM
 - [ ] Complete API docs
