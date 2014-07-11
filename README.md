@@ -142,3 +142,21 @@ Arguments:
     containsEvens([1, 2, 3]) // true
 
 ***
+
+### #every() ###
+
+`_.every(Function [, Array])`
+
+Arguments:
+- `Function`: accepts three arguments: `item`, `index` and `list`
+- `Array`
+
+#### Example: ###
+    _.every(_.isEven, [1, 2, 3]) // flase
+    _.every(_.isOdd, [3, 5, 7])  // true
+
+    var onlyEvens = _.every(_.isEven)
+
+    onlyEvens([1, 2, 3]) // false
+
+***
