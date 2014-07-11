@@ -30,7 +30,7 @@ To use it with Lodash/Underscore, `require` it to another namespace
 
 ## API ##
 
-### List functions ###
+### Lists ###
 
 #### #map() ####
 
@@ -193,5 +193,43 @@ Arguments:
     var getFoos = _.pluck('foo')
 
     getFoos(collection) // ['foo', 'bar', undefined]
+
+***
+
+### Functions ###
+
+#### #partial() ####
+
+`_.partial(Function, Arg1 [, Arg2, ...])`
+
+Arguments:
+- `Function`: Function whose arguments will be applied
+- `ArgN`: Arguement(s) to be applied to the function. Arguments can be skipped using `undefined` or `_` global
+
+##### Example: ####
+    var addOne = _.partial(_.sum, 1, _)
+      , addTwo = _.partial(_.sum, 2, undefined)
+
+    addOne(2) // 3
+    addTwo(2) // 4
+
+***
+
+#### #curry() ####
+
+`_.curry(Function [, argumentsSize])`
+
+Arguments:
+- `Function`: Function to be curryied
+- `argumentsSize`: `int`: quantity of arguments that `Function` will receive. Must be provided if `Function`'s arity is incorrect
+
+##### Example: ####
+    var curry = _.curry(function (a, b, c) {
+      return [a, b, c]
+    })
+
+    curry(1)
+    curry(2)
+    curry(3) // [1, 2, 3]
 
 ***
