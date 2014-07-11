@@ -1,7 +1,7 @@
 {
-  "name": "_",
+  "name": "fundash",
   "version": "0.0.0",
-  "description": "Functional goodness",
+  "description": "Functional utils",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests"
@@ -10,6 +10,10 @@
     "functional",
     "util"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/guilhermehn/fundash.git"
+  },
   "author": "Guilherme Nagatomo",
   "license": "MIT"
 }

@@ -1,4 +1,4 @@
-#_#
+#fundash#
 
 Functional utils
 
@@ -30,9 +30,12 @@ To use it with Lodash/Underscore, `require` it to another namespace
 
 ## API ##
 
+- Lists
+    - [map](#map)
+
 ### Lists ###
 
-#### #map() ####
+#### #map()
 
 `_.map(Function [, Array])`
 
@@ -40,7 +43,8 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-##### Example: ####
+**Example:**
+
     function increment (a) {
       return a + 1
     }
@@ -55,7 +59,7 @@ Arguments:
 
 ***
 
-#### #reduce() ####
+#### #reduce()
 
 `_.reduce(Function [, Array, initial])`
 
@@ -64,7 +68,8 @@ Arguments:
 - `Array`
 - `initial`: *
 
-##### Example: ####
+**Example:**
+
     var list = [1, 2, 3]
 
     _.reduce(_.sum, list, 0) // 6
@@ -75,7 +80,7 @@ Arguments:
 
 ***
 
-#### #forEach() ####
+#### #forEach()
 
 `_.forEach(Function [, Array])`
 
@@ -83,7 +88,8 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-##### Example: ####
+**Example:**
+
     var evens = []
       , odds = []
       , list = [1, 2, 3, 4, 5]
@@ -109,7 +115,7 @@ Arguments:
 
 ***
 
-#### #filter() ####
+#### #filter()
 
 `_.filter(Function [, Array])`
 
@@ -117,7 +123,8 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-##### Example: ####
+**Example:**
+
     var list = [1, 2, 3, 4, 5]
       , evens
       , odds
@@ -136,7 +143,7 @@ Arguments:
 
 ***
 
-#### #some() ####
+#### #some()
 
 `_.some(Function [, Array])`
 
@@ -144,7 +151,8 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-##### Example: ####
+**Example:**
+
     _.some(_.isEven, [1, 2, 3]) // true
     _.some(_.isEven, [3, 5, 7]) // false
     _.some(_.isOdd, [2, 3, 4])  // true
@@ -155,7 +163,7 @@ Arguments:
 
 ***
 
-#### #every() ####
+#### #every()
 
 `_.every(Function [, Array])`
 
@@ -163,7 +171,8 @@ Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
-##### Example: ####
+**Example:**
+
     _.every(_.isEven, [1, 2, 3]) // flase
     _.every(_.isOdd, [3, 5, 7])  // true
 
@@ -173,7 +182,7 @@ Arguments:
 
 ***
 
-#### #pluck() ####
+#### #pluck()
 
 `_.pluck(String [, Array])`
 
@@ -181,7 +190,8 @@ Arguments:
 - `String`: property to be retrieved from all the items of the list
 - `Array`
 
-##### Example: ####
+**Example:**
+
     var collection = [
       { foo: 'foo' },
       { foo: 'bar' },
@@ -196,7 +206,7 @@ Arguments:
 
 ***
 
-#### #replace() ####
+#### #replace()
 
 `_.replace(Array [, Array])`
 
@@ -204,7 +214,8 @@ Arguments:
 - `Array`: list of indexes to get from second `Array` argument
 - `Array`
 
-##### Example: ####
+**Example:**
+
     var list = [9, 8, 7, 6, 5]
 
     _.replace([0, 2, 4], list) // [9, 7, 5]
@@ -217,7 +228,7 @@ Arguments:
 
 ### Functions ###
 
-#### #partial() ####
+#### #partial()
 
 `_.partial(Function, Arg1 [, Arg2, ...])`
 
@@ -225,7 +236,8 @@ Arguments:
 - `Function`: Function whose arguments will be applied
 - `ArgN`: Arguement(s) to be applied to the function. Arguments can be skipped using `undefined` or `_` global
 
-##### Example: ####
+**Example:**
+
     var addOne = _.partial(_.sum, 1, _)
       , addTwo = _.partial(_.sum, 2, undefined)
 
@@ -234,7 +246,7 @@ Arguments:
 
 ***
 
-#### #curry() ####
+#### #curry()
 
 `_.curry(Function [, argumentsSize])`
 
@@ -242,7 +254,8 @@ Arguments:
 - `Function`: Function to be curryied
 - `argumentsSize`: `int`: quantity of arguments that `Function` will receive. *Must be provided if `Function`'s arity is incorrect*
 
-##### Example: ####
+**Example:**
+
     var curry = _.curry(function (a, b, c) {
       return [a, b, c]
     })
