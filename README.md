@@ -3,7 +3,8 @@
 Functional utils
 
 ```javascript
-var
+var _ = require('fundash')
+
     // get all the even numbers from the list
     getEvens = _.filter(_.isEven)
 
