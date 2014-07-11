@@ -25,15 +25,25 @@ var sumDoubleEvens = _.compose(sum, doubleNumbers, getEvents)
 sumDoubleEvens(numbers) // [4, 8, 12, 16]
 ```
 
-#### Attention: This Is Not A Lodash/Underscore Replacement ####
+#### Attention: This Is Not A Lodash/Underscore Replacement
 To use it with Lodash/Underscore, `require` it to another namespace
 
 ## API ##
 
 - Lists
     - [map](#map)
+    - [reduce](#reduce)
+    - [forEach](#forEach)
+    - [filter](#filter)
+    - [some](#some)
+    - [every](#every)
+    - [pluck](#pluck)
+    - [replace](#replace)
+- Functions
+    - [partial](#partial)
+    - [curry](#curry)
 
-### Lists ###
+### Lists
 
 #### #map()
 
@@ -265,3 +275,9 @@ Arguments:
     curry(3) // [1, 2, 3]
 
 ***
+
+## TODO
+[ ] Publish to NPM
+[ ] Complete API docs
+[ ] Make wiki
+[ ] More functions (Yay!)
