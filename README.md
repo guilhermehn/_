@@ -25,6 +25,9 @@ var sumDoubleEvens = _.compose(sum, doubleNumbers, getEvents)
 sumDoubleEvens(numbers) // [4, 8, 12, 16]
 ```
 
+## Installation ##
+`npm install fundash`
+
 #### Attention: This Is Not A Lodash/Underscore Replacement
 To use it with Lodash/Underscore, `require` it to another namespace
 
