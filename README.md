@@ -32,7 +32,7 @@ To use it with Lodash/Underscore, `require` it to another namespace
 
 ### #map() ###
 
-`_.map(Function, Array)`
+`_.map(Function [, Array])`
 
 Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
@@ -55,7 +55,7 @@ Arguments:
 
 ### #reduce() ###
 
-`_.reduce(Function, Array, initial)`
+`_.reduce(Function [, Array, initial])`
 
 Arguments:
 - `Function`: accepts four arguments: `accumulator`, `item`, `index` and `list`
@@ -63,13 +63,9 @@ Arguments:
 - `initial`: *
 
 #### Example: ###
-    function sum (a, b) {
-      return a + b
-    }
-
     var list = [1, 2, 3]
 
-    _.reduce(sum, list, 0) // 6
+    _.reduce(_.sum, list, 0) // 6
 
     var sumItems = _.map(sum)
 
@@ -79,28 +75,70 @@ Arguments:
 
 ### #forEach() ###
 
-`_.forEach(Function, Array)`
+`_.forEach(Function [, Array])`
 
 Arguments:
 - `Function`: accepts three arguments: `item`, `index` and `list`
 - `Array`
 
 #### Example: ###
-    function isEven (a) {
-      return a % 2 === 0
-    }
-
     var evens = []
       , odds = []
       , list = [1, 2, 3, 4, 5]
 
     _.forEach(function (item) {
-      var type = isEven(item) ? evens : odds
+      var type = _.isEven(item) ? evens : odds
 
       type.push(item)
     }, list)
 
     // evens == [2, 4]
     // odds  == [1, 3, 5]
+
+***
+
+### #filter() ###
+
+`_.filter(Function [, Array])`
+
+Arguments:
+- `Function`: accepts three arguments: `item`, `index` and `list`
+- `Array`
+
+#### Example: ###
+    var list = [1, 2, 3, 4, 5]
+      , evens
+      , odds
+
+    evens = _.filter(_.isEven, list)
+    odds = _.filter(_.isOdd, list)
+
+    // evens == [2, 4]
+    // odds  == [1, 3, 5]
+
+    var getEvens = _.filter(_.isEven)
+      , getOdds = _.filter(_.isOdd)
+
+    getEvens(list) // [2, 4]
+    getOdds(list)  // [1, 3, 5]
+
+***
+
+### #some() ###
+
+`_.some(Function [, Array])`
+
+Arguments:
+- `Function`: accepts three arguments: `item`, `index` and `list`
+- `Array`
+
+#### Example: ###
+    _.some(_.isEven, [1, 2, 3]) // true
+    _.some(_.isEven, [3, 5, 7]) // false
+    _.some(_.isOdd, [2, 3, 4])  // true
+
+    var containsEvens = _.some(_.isEven)
+
+    containsEvens([1, 2, 3]) // true
 
 ***
