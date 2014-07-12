@@ -46,6 +46,7 @@ To use it with Lodash/Underscore, `require` it to another namespace
 - Functions
     - [partial](#partial)
     - [curry](#curry)
+    - [compose](#compose)
 
 ### Lists
 
@@ -285,13 +286,28 @@ Arguments:
 `_.compose(Function, Function [, Function, ...])`
 
 Arguments:
-- `Function`: Compose a function from given functions from right to left
+- `FunctionN`: Compose a function from given functions from right to left
 
 **Example:**
 
     var sumEvens = _.compose(_.sumAll, _.filter(_.isEven))
 
     sumEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]) // 20
+
+***
+
+#### #sequence()
+
+`_.sequence(Function, Function [, Function, ...])`
+
+Arguments:
+- `FunctionN`: Function to be executed in sequence
+
+**Example:**
+
+    var sumOdds = _.sequence(_.filter(_.isOdd), _.sumAll)
+
+    sumOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]) // 25
 
 ***
 
