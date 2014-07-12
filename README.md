@@ -311,6 +311,21 @@ Arguments:
 
 ***
 
+#### #propery()
+
+`_.propery(String)`
+
+Arguments:
+- `String`: Property to be get
+
+**Example:**
+
+    var getFoo = _.property('foo')
+
+    getFoo({ foo: 'bar' }) // bar
+
+***
+
 ## TODO
 - [ ] Publish to NPM
 - [ ] Complete API docs
