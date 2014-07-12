@@ -326,8 +326,93 @@ Arguments:
 
 ***
 
+### Operations
+
+#### #sum()
+
+`_.sum(Number, Number)`
+
+Arguments:
+- `Number`s: Numbers to be summed
+
+**Example:**
+
+    _.sum(1, 2) // 3
+
+***
+
+#### #subtract()
+
+`_.subtract(Number, Number)`
+
+Arguments:
+- `Number`s: Numbers to be subtracted
+
+**Example:**
+
+    _.subtract(2, 1) // 1
+
+***
+
+#### #multiply()
+
+`_.multiply(Number, Number)`
+
+Arguments:
+- `Number`s: Numbers to be multiplied
+
+**Example:**
+
+    _.multiply(2, 2) // 4
+
+***
+
+#### #divide()
+
+`_.divide(Number, Number)`
+
+Arguments:
+- `Number`s: Numbers to be divided
+
+**Example:**
+
+    _.divide(4, 2) // 2
+
+***
+
+#### #sumAll()
+
+`_.sumAll(Array)`
+
+Arguments:
+- `Array`: Sum all numbers in the list. Ignores anything that is not a number
+
+**Example:**
+
+    _.sumAll([1, 2, 3]) // 6
+
+***
+
+#### #inc()
+
+`_.inc(Number)`
+
+Arguments:
+- `Number`: Number to be increased by one
+
+**Example:**
+
+    _.inc(1) // 2
+
+    var incList = _.map(_.inc)
+
+    incList([0, 1, 2]) // [1, 2, 3]
+    incList([1, 2, 3]) // [2, 3, 4]
+
+***
+
 ## TODO
-- [ ] Publish to NPM
+- [x] Publish to NPM
 - [ ] Complete API docs
 - [ ] Make wiki
 - [ ] More functions (Yay!)
