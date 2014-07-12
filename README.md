@@ -47,6 +47,9 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [partial](#partial)
     - [curry](#curry)
     - [compose](#compose)
+    - [sequence](#sequence)
+    - [propery](#propery)
+    - [toArray](#toArray)
 
 ### Lists
 
@@ -323,6 +326,23 @@ Arguments:
     var getFoo = _.property('foo')
 
     getFoo({ foo: 'bar' }) // bar
+
+***
+
+#### #toArray()
+
+`_.toArray(Arguments)`
+
+Arguments:
+- `Arguments`: Cast `arguments` object to array
+
+**Example:**
+
+    function foo (a, b, c) {
+      var args = _.toArray(arguments)
+
+      // args == [a, b, c]
+    }
 
 ***
 
