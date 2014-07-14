@@ -37,7 +37,7 @@ To use it with Lodash/Underscore, `require` it to another namespace
 - Lists
     - [map](#map)
     - [reduce](#reduce)
-    - [forEach](#forEach)
+    - [foreach](#foreach)
     - [filter](#filter)
     - [some](#some)
     - [every](#every)
@@ -50,7 +50,7 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [sequence](#sequence)
     - [propery](#propery)
     - [toArray](#toArray)
-    - [indexOf](#indexOf)
+    - [indexof](#indexof)
     - [range](#range)
 
 ### Lists
