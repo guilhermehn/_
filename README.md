@@ -37,7 +37,7 @@ To use it with Lodash/Underscore, `require` it to another namespace
 - Lists
     - [map](#map)
     - [reduce](#reduce)
-    - [foreach](#foreach)
+    - [forEach](#foreach)
     - [filter](#filter)
     - [some](#some)
     - [every](#every)
@@ -46,7 +46,7 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [replace](#replace)
     - [first](#first)
     - [last](#last)
-    - [indexof](#indexof)
+    - [indexOf](#indexof)
 - Functions
     - [partial](#partial)
     - [curry](#curry)
@@ -60,10 +60,19 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [subtract](#subtract)
     - [multiply](#multiply)
     - [divide](#divide)
-    - [sumall](#sumall)
+    - [sumAll](#sumall)
     - [inc](#inc)
     - [dec](#dec)
     - [double](#double)
+- Checkers
+    - [isEven](#iseven)
+    - [isOdd](#isodd)
+    - [isNumber](#isnumber)
+    - [isObject](#isobject)
+    - [isUndefined](#isundefined)
+    - [isArguments](#isarguments)
+    - [isEmpty](#isempty)
+    - [isString](#isstring)
 
 ### Lists
 
