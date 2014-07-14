@@ -364,6 +364,26 @@ describe('_', function () {
     })
   })
 
+  describe('#range()', function () {
+    it('should return a range of numbers', function () {
+      assert.deepEqual(_.range(4), [0, 1, 2, 3])
+    })
+
+    it('should accept two arguments, `start` and `end`', function () {
+      assert.deepEqual(_.range(1, 5), [1, 2, 3, 4])
+    })
+
+    it('should accept a `step` argument', function () {
+      assert.deepEqual(_.range(2, -2, -1), [2, 1, 0, -1])
+
+      assert.deepEqual(_.range(0, 20, 5), [0, 5, 10, 15])
+    })
+
+    it('should return a empty list if `start` is 0', function () {
+      assert.deepEqual(_.range(0), [])
+    })
+  })
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined)
