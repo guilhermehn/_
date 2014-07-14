@@ -390,6 +390,9 @@ describe('_', function () {
 
       var obj = {}
       assert.equal(_.indexOf(obj, [obj]), 0)
+
+      var firstObj = _.indexOf(obj)
+      assert.equal(firstObj([1, obj, 2]), 1)
     })
 
     it('should return -1 if the list does not contain the value', function () {
