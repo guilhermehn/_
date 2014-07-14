@@ -384,6 +384,16 @@ describe('_', function () {
     })
   })
 
+  describe('#indexOf()', function () {
+    it('should return the index of the first occurence of the value in the list', function () {
+      assert.equal(_.indexOf(2, [1, 2, 3, 2]), 1)
+    })
+
+    it('should return -1 if the list does not contain the value', function () {
+      assert.equal(_.indexOf(4, [1, 2, 3]), -1)
+    })
+  })
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined)
