@@ -92,4 +92,14 @@ describe('Checkers', function () {
       assert(!_.isEmpty('a'))
     })
   })
+
+  describe('#isString()', function () {
+    it('should return true if value is a string', function () {
+      assert(_.isString(''))
+      assert(!_.isString(undefined))
+      assert(!_.isString([]))
+      assert(!_.isString(true))
+      assert(!_.isString(1))
+    })
+  })
 })
