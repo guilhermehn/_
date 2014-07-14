@@ -1,6 +1,6 @@
 #fundash#
 
-Functional utils
+Functional utils. *heavily inspired by [Lodash](http://lodash.com/).*
 
 ```javascript
 var _ = require('fundash')
@@ -41,8 +41,12 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [filter](#filter)
     - [some](#some)
     - [every](#every)
+    - [none](#none)
     - [pluck](#pluck)
     - [replace](#replace)
+    - [first](#first)
+    - [last](#last)
+    - [indexof](#indexof)
 - Functions
     - [partial](#partial)
     - [curry](#curry)
@@ -50,14 +54,13 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [sequence](#sequence)
     - [propery](#propery)
     - [toArray](#toArray)
-    - [indexof](#indexof)
     - [range](#range)
 - Operations
     - [sum](#sum)
     - [subtract](#subtract)
     - [multiply](#multiply)
     - [divide](#divide)
-    - [sumAll](#sumAll)
+    - [sumall](#sumall)
     - [inc](#inc)
     - [dec](#dec)
     - [double](#double)
