@@ -63,9 +63,3 @@ describe('_', function () {
     })
   })
 })
-
-function args () {
-  console.log(Object.prototype.toString(arguments))
-}
-
-args()
