@@ -387,6 +387,9 @@ describe('_', function () {
   describe('#indexOf()', function () {
     it('should return the index of the first occurence of the value in the list', function () {
       assert.equal(_.indexOf(2, [1, 2, 3, 2]), 1)
+
+      var obj = {}
+      assert.equal(_.indexOf(obj, [obj]), 0)
     })
 
     it('should return -1 if the list does not contain the value', function () {
