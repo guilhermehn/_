@@ -352,6 +352,16 @@ describe('_', function () {
     it('should return undefined if the list is empty', function () {
       assert.equal(_.first([]), undefined)
     })
+
+    it('should not return the reference for the value', function () {
+      var list = [1, 2, 3]
+        , first = _.first(list)
+
+      first += 1
+
+      assert.equal(first, 2)
+      assert.equal(list[0], 1)
+    })
   })
 
   describe('#last()', function () {
