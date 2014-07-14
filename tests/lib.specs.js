@@ -344,6 +344,16 @@ describe('_', function () {
     })
   })
 
+  describe('#first()', function () {
+    it('should return the first item from the list', function () {
+      assert.equal(_.first([1, 2, 3]), 1)
+    })
+
+    it('should return undefined if the list is empty', function () {
+      assert.equal(_.first([]), undefined)
+    })
+  })
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined)
