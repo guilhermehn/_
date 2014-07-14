@@ -50,6 +50,8 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [sequence](#sequence)
     - [propery](#propery)
     - [toArray](#toArray)
+    - [indexOf](#indexOf)
+    - [range](#range)
 
 ### Lists
 
