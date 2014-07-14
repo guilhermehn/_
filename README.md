@@ -52,6 +52,15 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [toArray](#toArray)
     - [indexof](#indexof)
     - [range](#range)
+- Operations
+    - [sum](#sum)
+    - [subtract](#subtract)
+    - [multiply](#multiply)
+    - [divide](#divide)
+    - [sumAll](#sumAll)
+    - [inc](#inc)
+    - [dec](#dec)
+    - [double](#double)
 
 ### Lists
 
@@ -469,6 +478,40 @@ Arguments:
 
     incList([0, 1, 2]) // [1, 2, 3]
     incList([1, 2, 3]) // [2, 3, 4]
+
+***
+
+#### #dec()
+
+`_.dec(Number)`
+
+Arguments:
+- `Number`: Number to be decreased by one
+
+**Example:**
+
+    _.dec(1) // 2
+
+    var decList = _.map(_.dec)
+
+    decList([1, 2, 3]) // [0, 1, 2]
+
+***
+
+#### #double()
+
+`_.double(Number)`
+
+Arguments:
+- `Number`: Number to be multiplied by 2
+
+**Example:**
+
+    _.double(2) // 4
+
+    var doubleList = _.map(_.double)
+
+    doubleList([1, 2, 3]) // [2, 4, 6]
 
 ***
 
