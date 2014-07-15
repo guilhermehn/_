@@ -145,4 +145,17 @@ describe('Functions', function () {
       assert(_.not(true) === false)
     })
   })
+
+  describe('#once()', function () {
+    function addOne (n) {
+      return n + 1
+    }
+
+    it('should run only once', function () {
+      var addOneOnce = _.once(addOne)
+
+      assert.equal(addOneOnce(2), 3)
+      assert.equal(addOneOnce(4), 3)
+    })
+  })
 })
