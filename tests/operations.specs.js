@@ -73,4 +73,15 @@ describe('Operations', function () {
       assert.equal(_.max([]), -Infinity)
     })
   })
+
+  describe('#min()', function () {
+    it('should return the smallest number from the list', function () {
+      assert.equal(_.min([1, 2]), 1)
+      assert.equal(_.min([-1, 0]), -1)
+    })
+
+    it('should return Infinity if the list is empty', function () {
+      assert.equal(_.min([]), Infinity)
+    })
+  })
 })
