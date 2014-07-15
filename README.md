@@ -573,6 +573,142 @@ Arguments:
 
 ***
 
+### Checkers
+
+#### #isEven()
+
+`_.isEven(Number)`
+
+Arguments:
+- `Number`
+
+**Example:**
+
+    _.isEven(1) // false
+    _.isEven(2) // true
+
+***
+
+#### #isOdd()
+
+`_.isOdd(Number)`
+
+Arguments:
+- `Number`
+
+**Example:**
+
+    _.isOdd(1) // true
+    _.isOdd(2) // false
+
+***
+
+#### #isNumber()
+
+`_.isNumber(value)`
+
+Arguments:
+- `value`: *
+
+**Example:**
+
+    _.isNumber(1)   // true
+    _.isNumber('1') // false
+
+***
+
+#### #isObject()
+
+`_.isObject(value)`
+
+Arguments:
+- `value`: *
+
+**Example:**
+
+    _.isObject({}) // true
+    _.isObject([]) // true
+    _.isObject('') // false
+
+***
+
+#### #isUndefined()
+
+`_.isUndefined(value)`
+
+Arguments:
+- `value`: *
+
+**Example:**
+
+    var undef
+      , obj = {}
+
+    _.isUndefined(undefined) // true
+    _.isUndefined(void 0)    // true
+    _.isUndefined(undef)     // true
+    _.isUndefined(obj.foo)   // true
+    _.isUndefined('')        // false
+    _.isUndefined({})        // false
+
+***
+
+#### #isArguments()
+
+`_.isArguments(value)`
+
+Arguments:
+- `value`: *
+
+**Example:**
+
+    function foo () {
+      return _.isArgument(arguments)
+    }
+
+    function bar () {
+      return _.toArray(arguments)
+    }
+
+    foo() // true
+
+    _.isArguments(bar()) // false
+
+***
+
+#### #isEmpty()
+
+`_.isEmpty(Array|String|Object)`
+
+Arguments:
+- `Array|String|Object`
+
+**Example:**
+
+    _.isEmpty([])    // true
+    _.isEmpty([''])  // false
+    _.isEmpty('foo') // false
+    _.isEmpty({})    // true
+    _.isEmpty(null)  // true
+    _.isEmpty({ foo: undefined }) // false
+
+***
+
+#### #isString()
+
+`_.isEmpty(value)`
+
+Arguments:
+- `value`: *
+
+**Example:**
+
+    _.isString('')    // true
+    _.isString([])    // false
+    _.isString(null)  // false
+
+***
+
 ## TODO
 - [x] Publish to NPM
 - [ ] Complete API docs
