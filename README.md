@@ -267,6 +267,52 @@ Arguments:
 
 ***
 
+#### #first()
+
+`_.first(Array)`
+
+Arguments:
+- `Array`
+
+**Example:**
+
+    _.first([1, 2, 3]) // 1
+
+***
+
+
+#### #last()
+
+`_.last(Array)`
+
+Arguments:
+- `Array`
+
+**Example:**
+
+    _.last([1, 2, 3]) // 3
+
+***
+
+#### #indexOf()
+
+`_.indexOf(value, Array)`
+
+Arguments:
+- `value`: *: value to be searched by in the `Array`
+- `Array`
+
+**Example:**
+    _.indexOf(2, [1, 2, 3]) // 1
+
+    var foo = { bar: 'lorem' }
+    _.indexOf(foo, [foo]) // 0
+
+    var firstFooFrom = _.indexOf(foo)
+    firstFooFrom([1, 2, foo, 3, 4]) // 2
+
+***
+
 ### Functions ###
 
 #### #partial()
@@ -366,25 +412,6 @@ Arguments:
 
       // args == [a, b, c]
     }
-
-***
-
-#### #indexOf()
-
-`_.indexOf(value, Array)`
-
-Arguments:
-- `value`: *: value to be searched by in the `Array`
-- `Array`
-
-**Example:**
-    _.indexOf(2, [1, 2, 3]) // 1
-
-    var foo = { bar: 'lorem' }
-    _.indexOf(foo, [foo]) // 0
-
-    var firstFooFrom = _.indexOf(foo)
-    firstFooFrom([1, 2, foo, 3, 4]) // 2
 
 ***
 
