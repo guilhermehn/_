@@ -241,4 +241,14 @@ describe('Lists', function () {
       assert.equal(_.indexOf(4, [1, 2, 3]), -1)
     })
   })
+
+  describe('#concatAll()', function () {
+    it('should concat all arrays from the list', function () {
+      var a = [1, 2, 3]
+        , b = [4, 5, 6]
+        , c = [a, b]
+
+      assert.deepEqual(_.concatAll(c), [1 ,2, 3, 4, 5, 6])
+    })
+  })
 })
