@@ -55,6 +55,7 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [propery](#propery)
     - [toArray](#toArray)
     - [range](#range)
+    - [not](#not)
 - Operations
     - [sum](#sum)
     - [subtract](#subtract)
@@ -451,6 +452,30 @@ Arguments:
     _.range(10, 0, -1) // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
     _.range(1, 4, 0) // [1, 1, 1]
+
+***
+
+#### #not()
+
+`_.not(Function)`
+
+Arguments:
+- `Function`: Function that will be negated
+
+**Example:**
+    function foo () {
+      return true
+    }
+
+    var notFoo = _.not(foo)
+
+    notFoo() // false
+
+    var isOdd = _.not(_.isEven)
+
+    isOdd(3) // true
+
+    _.not(true) // false
 
 ***
 
