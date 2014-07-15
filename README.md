@@ -223,6 +223,25 @@ Arguments:
 
 ***
 
+#### #none()
+
+`_.none(Function [, Array])`
+
+Arguments:
+- `Function`: accepts three arguments: `item`, `index` and `list`
+- `Array`
+
+**Example:**
+
+    _.none(_.isEven, [1, 2, 3]) // flase
+    _.none(_.isEven, [3, 5, 7]) // true
+
+    var noEvens = _.none(_.isEven)
+
+    noEvens([1, 3, 5]) // true
+
+***
+
 #### #pluck()
 
 `_.pluck(String [, Array])`
