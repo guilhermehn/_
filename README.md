@@ -1,6 +1,6 @@
 #fundash#
 
-Functional utils. *heavily inspired by [Lodash](http://lodash.com/).*
+Functional utils. *Heavily inspired by [Lodash](http://lodash.com/).*
 
 ```javascript
 var _ = require('fundash')
