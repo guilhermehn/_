@@ -56,6 +56,7 @@ To use it with Lodash/Underscore, `require` it to another namespace
     - [toArray](#toArray)
     - [range](#range)
     - [not](#not)
+    - [concat](#concat)
 - Operations
     - [sum](#sum)
     - [subtract](#subtract)
@@ -476,6 +477,25 @@ Arguments:
     isOdd(3) // true
 
     _.not(true) // false
+
+***
+
+#### #concat()
+
+`_.concat(Array [, Array ...])`
+
+Arguments:
+- `Array`
+
+**Example:**
+    var a = [1, 2, 3]
+      , b = [4, 5, 6]
+
+    _.concat(a, b) // [1, 2, 3, 4, 5, 6]
+
+    var c = [a, b, [7, 8, 9]]
+
+    _.reduce(_.concat, a) // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ***
 
