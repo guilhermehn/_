@@ -36,6 +36,8 @@ describe('Checkers', function () {
 
   describe('#isUndefined()', function () {
     it('should return true if value is undefined', function () {
+      var obj = {}
+
       assert(_.isUndefined(undefined))
       assert(!_.isUndefined(1))
       assert(_.isUndefined())
@@ -43,6 +45,7 @@ describe('Checkers', function () {
       assert(!_.isUndefined(''))
       assert(!_.isUndefined({}))
       assert(_.isUndefined(void 0))
+      assert(_.isUndefined(obj.foo))
     })
   })
 
