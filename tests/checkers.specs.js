@@ -80,6 +80,7 @@ describe('Checkers', function () {
   describe('#isEmpty()', function () {
     it('should return true if the array is empty', function () {
       assert(_.isEmpty([]))
+      assert(_.isEmpty(null))
       assert(!_.isEmpty([1]))
       assert(!_.isEmpty([undefined]))
     })
