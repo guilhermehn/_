@@ -62,4 +62,15 @@ describe('Operations', function () {
       assert.equal(_.double(3.3), 6.6)
     })
   })
+
+  describe('#max()', function () {
+    it('should return the largest number from the list', function () {
+      assert.equal(_.max([1, 2]), 2)
+      assert.equal(_.max([-1, 0]), 0)
+    })
+
+    it('should return -Infinity if the list is empty', function () {
+      assert.equal(_.max([]), -Infinity)
+    })
+  })
 })
