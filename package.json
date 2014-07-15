@@ -15,5 +15,8 @@
     "url": "git://github.com/guilhermehn/fundash.git"
   },
   "author": "Guilherme Nagatomo",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "benchmark": "^1.0.0"
+  }
 }
