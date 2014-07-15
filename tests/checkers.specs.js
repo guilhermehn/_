@@ -94,6 +94,11 @@ describe('Checkers', function () {
       assert(_.isEmpty(''))
       assert(!_.isEmpty('a'))
     })
+
+    it('should return true for objects only if it is a iterable', function () {
+      assert(_.isEmpty(2))
+      assert(_.isEmpty(/foo/))
+    })
   })
 
   describe('#isString()', function () {
