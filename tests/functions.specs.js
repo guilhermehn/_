@@ -126,18 +126,6 @@ describe('Functions', function () {
       assert.deepEqual(b, [4, 5, 6])
       assert.deepEqual(c, [1 ,2, 3, 4, 5, 6])
     })
-
-    it('should ignore non-array values', function () {
-      assert.deepEqual(_.concat(undefined, [1]), [1])
-    })
-
-    it('should work with #reduce()', function () {
-      var c = [a, b]
-
-      var concatArrays = _.reduce(_.concat)
-
-      assert.deepEqual(concatArrays(c), [1, 2, 3, 4, 5, 6])
-    })
   })
 
   describe('#not()', function () {
