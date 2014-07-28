@@ -1,18 +1,18 @@
 var _ = require('../')
-  , assert = require('assert')
+  , expect = require('expect.js')
 
 describe('Functions', function () {
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined)
 
-      assert.equal(partialSum(1), 2)
+      expect(partialSum(1)).to.be(2)
     })
 
     it('should accept module global for skipping arguments', function () {
       var partialSum = _.partial(_.sum, _, 1)
 
-      assert.equal(partialSum(1), 2)
+      expect(partialSum(1)).to.be(2)
     })
   })
 
@@ -21,8 +21,8 @@ describe('Functions', function () {
       var curried = _.curry(function (a, b, c) { return [a, b, c] })
         , oneTwo = curried(1, 2)
 
-      assert.deepEqual(curried(1)(2)(3), [1, 2, 3])
-      assert.deepEqual(oneTwo(3), [1, 2, 3])
+      expect(curried(1)(2)(3)).to.eql([1, 2, 3])
+      expect(oneTwo(3)).to.eql([1, 2, 3])
     })
   })
 
@@ -31,11 +31,11 @@ describe('Functions', function () {
       var addAndDouble = _.compose(_.double, _.inc)
         , addAndDoubleLists = _.map(addAndDouble)
 
-      assert.equal(addAndDouble(1), 4)
-      assert.equal(addAndDouble(2), 6)
-      assert.equal(addAndDouble(3), 8)
+      expect(addAndDouble(1)).to.be(4)
+      expect(addAndDouble(2)).to.be(6)
+      expect(addAndDouble(3)).to.be(8)
 
-      assert.deepEqual(addAndDoubleLists([1, 2, 3]), [4, 6, 8])
+      expect(addAndDoubleLists([1, 2, 3])).to.eql([4, 6, 8])
     })
   })
 
@@ -44,11 +44,11 @@ describe('Functions', function () {
       var addAndDouble = _.sequence(_.inc, _.double)
         , addAndDoubleLists = _.map(addAndDouble)
 
-      assert.equal(addAndDouble(1), 4)
-      assert.equal(addAndDouble(2), 6)
-      assert.equal(addAndDouble(3), 8)
+      expect(addAndDouble(1)).to.be(4)
+      expect(addAndDouble(2)).to.be(6)
+      expect(addAndDouble(3)).to.be(8)
 
-      assert.deepEqual(addAndDoubleLists([1, 2, 3]), [4, 6, 8])
+      expect(addAndDoubleLists([1, 2, 3])).to.eql([4, 6, 8])
     })
   })
 
@@ -58,13 +58,13 @@ describe('Functions', function () {
         , obj1 = { foo: 'foo' }
         , obj2 = { foo: 'bar' }
 
-      assert.equal(getFoo(obj1), 'foo')
-      assert.equal(getFoo(obj2), 'bar')
+      expect(getFoo(obj1)).to.be('foo')
+      expect(getFoo(obj2)).to.be('bar')
     })
 
     it('should return undefined if the object does not contain the specified key', function () {
       var getFoo = _.property('foo')
-      assert.equal(getFoo({}), undefined)
+      expect(getFoo({})).to.be(undefined)
     })
   })
 
@@ -72,42 +72,42 @@ describe('Functions', function () {
     it('should convert to array', function () {
       var args = _.toArray(arguments)
 
-      assert(!(arguments instanceof Array))
-      assert(args instanceof Array)
+      expect(!(arguments instanceof Array)).ok()
+      expect(args instanceof Array).ok()
     })
   })
 
   describe('#range()', function () {
     it('should return a range of numbers', function () {
-      assert.deepEqual(_.range(4), [0, 1, 2, 3])
+      expect(_.range(4)).to.eql([0, 1, 2, 3])
     })
 
     it('should accept two arguments, `start` and `end`', function () {
-      assert.deepEqual(_.range(1, 5), [1, 2, 3, 4])
+      expect(_.range(1, 5)).to.eql([1, 2, 3, 4])
     })
 
     it('should accept a `step` argument', function () {
-      assert.deepEqual(_.range(2, -2, -1), [2, 1, 0, -1])
+      expect(_.range(2, -2, -1)).to.eql([2, 1, 0, -1])
 
-      assert.deepEqual(_.range(0, 20, 5), [0, 5, 10, 15])
+      expect(_.range(0, 20, 5)).to.eql([0, 5, 10, 15])
     })
 
     it('should return a empty list if `start` is 0', function () {
-      assert.deepEqual(_.range(0), [])
+      expect(_.range(0)).to.eql([])
     })
   })
 
   describe('#keys()', function () {
     it('should return the keys from the object', function () {
-      assert.deepEqual(_.keys({ foo: 'bar' }), ['foo'])
+      expect(_.keys({ foo: 'bar' })).to.eql(['foo'])
     })
 
     it('should return a empty array if value is not a enumerable object', function () {
-      assert.deepEqual(_.keys(1), [])
-      assert.deepEqual(_.keys(undefined), [])
-      assert.deepEqual(_.keys(null), [])
-      assert.deepEqual(_.keys(function () {}), [])
-      assert.deepEqual(_.keys('lorem'), [])
+      expect(_.keys(1)).to.eql([])
+      expect(_.keys(undefined)).to.eql([])
+      expect(_.keys(null)).to.eql([])
+      expect(_.keys(function () {})).to.eql([])
+      expect(_.keys('lorem')).to.eql([])
     })
   })
 
@@ -116,15 +116,15 @@ describe('Functions', function () {
       , b = [4, 5, 6]
 
     it('should concat two arrays into one', function () {
-      assert.deepEqual(_.concat(a, b), [1, 2, 3, 4, 5, 6])
+      expect(_.concat(a, b)).to.eql([1, 2, 3, 4, 5, 6])
     })
 
     it('should not mutate the arguments', function () {
       var c = _.concat(a, b)
 
-      assert.deepEqual(a, [1, 2, 3])
-      assert.deepEqual(b, [4, 5, 6])
-      assert.deepEqual(c, [1 ,2, 3, 4, 5, 6])
+      expect(a).to.eql([1, 2, 3])
+      expect(b).to.eql([4, 5, 6])
+      expect(c).to.eql([1 ,2, 3, 4, 5, 6])
     })
   })
 
@@ -134,15 +134,15 @@ describe('Functions', function () {
         return false
       }
 
-      assert(_.not(foo)())
+      expect(_.not(foo)()).ok()
 
       var notNumber = _.not(_.isNumber)
 
-      assert(notNumber({}))
+      expect(notNumber({})).ok()
     })
 
     it('should evaluate and negate values', function () {
-      assert(_.not(true) === false)
+      expect(_.not(true) === false).ok()
     })
   })
 
@@ -154,8 +154,8 @@ describe('Functions', function () {
     it('should run only once', function () {
       var addOneOnce = _.once(addOne)
 
-      assert.equal(addOneOnce(2), 3)
-      assert.equal(addOneOnce(4), 3)
+      expect(addOneOnce(2)).to.eql(3)
+      expect(addOneOnce(4)).to.eql(3)
     })
   })
 })
