@@ -1,5 +1,5 @@
 var _ = require('../')
-  , assert = require('assert')
+  , expect = require('expect.js')
 
 describe('_', function () {
   it('should work', function () {
@@ -16,26 +16,26 @@ describe('_', function () {
       return album.artist + ' - ' + album.name
     }
 
-    assert.equal(bandAlbum(albums[0]), 'Exodus - Bonded By Blood')
+    expect(bandAlbum(albums[0])).to.be('Exodus - Bonded By Blood')
 
-    assert(_.map(bandAlbum, albums)[0], 'Exodus - Bonded By Blood')
+    expect(_.map(bandAlbum, albums)[0]).to.be('Exodus - Bonded By Blood')
   })
 
   describe('Examples', function () {
     it('Example #1', function () {
       var onlyNumbers = _.every(_.isNumber)
 
-      assert(onlyNumbers([1, 2, 3]))
+      expect(onlyNumbers([1, 2, 3])).ok()
 
       var noNumbers = _.every(_.not(_.isNumber))
 
-      assert(noNumbers([{}, undefined, null, 'abc', false]))
+      expect(noNumbers([{}, undefined, null, 'abc', false])).ok()
     })
 
     it('Example #2', function () {
       var findNumbers = _.filter(_.isNumber)
 
-      assert.deepEqual(findNumbers([undefined, null, 1, {}, 2, false, 3]), [1, 2, 3])
+      expect(findNumbers([undefined, null, 1, {}, 2, false, 3])).to.eql([1, 2, 3])
     })
   })
 
@@ -54,12 +54,12 @@ describe('_', function () {
         , numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
-      assert.equal(sum(doubleNumbers(getEvens(numbers))), 40)
+      expect(sum(doubleNumbers(getEvens(numbers)))).to.be(40)
 
       // or do the right way
       var sumDoubleEvens = _.compose(sum, doubleNumbers, getEvens)
 
-      assert.equal(sumDoubleEvens(numbers), 40)
+      expect(sumDoubleEvens(numbers)).to.be(40)
     })
   })
 })
