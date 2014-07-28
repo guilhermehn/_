@@ -1,5 +1,7 @@
 #fundash#
 
+[![Build Status](https://travis-ci.org/guilhermehn/fundash.svg?branch=master)](https://travis-ci.org/guilhermehn/fundash)
+
 Functional utils. *Heavily inspired by [Lodash](http://lodash.com/).*
 
 ```javascript
@@ -324,6 +326,7 @@ Arguments:
 - `Array`
 
 **Example:**
+
     _.indexOf(2, [1, 2, 3]) // 1
 
     var foo = { bar: 'lorem' }
@@ -446,6 +449,7 @@ Arguments:
 - `step`: `Number`
 
 **Example:**
+
     _.range(3) // [0, 1, 2]
 
     _.range(1, 4) // [1, 2, 3]
@@ -464,6 +468,7 @@ Arguments:
 - `Function`: Function that will be negated
 
 **Example:**
+
     function foo () {
       return true
     }
@@ -488,6 +493,7 @@ Arguments:
 - `Array`
 
 **Example:**
+
     var a = [1, 2, 3]
       , b = [4, 5, 6]
 
