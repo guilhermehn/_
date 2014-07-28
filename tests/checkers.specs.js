@@ -1,36 +1,36 @@
 var _ = require('../')
-  , assert = require('assert')
+  , expect = require('expect.js')
 
 describe('Checkers', function () {
   describe('#isEven()', function () {
     it('should return true if number is even', function () {
-      assert(_.isEven(2))
-      assert(!_.isEven(3))
-      assert(!_.isEven(2.456))
+      expect(_.isEven(2)).ok()
+      expect(!_.isEven(3)).ok()
+      expect(!_.isEven(2.456)).ok()
     })
   })
 
   describe('#isOdd()', function () {
     it('should return true if number is odd', function () {
-      assert(_.isOdd(3))
-      assert(!_.isOdd(2))
+      expect(_.isOdd(3)).ok()
+      expect(!_.isOdd(2)).ok()
     })
   })
 
   describe('#isNumber()', function () {
     it('should return true if argument is a number', function () {
-      assert(_.isNumber(1))
+      expect(_.isNumber(1)).ok()
     })
 
     it('should return false if value is anything but a number', function () {
       var invalidValues = ['1', undefined, null, true, false, {}]
-      assert(_.none(_.isNumber, invalidValues))
+      expect(_.none(_.isNumber, invalidValues)).ok()
     })
   })
 
   describe('#isObject()', function () {
     it('should return true if value is a object', function () {
-      assert(_.isObject({}))
+      expect(_.isObject({})).ok()
     })
   })
 
@@ -38,14 +38,14 @@ describe('Checkers', function () {
     it('should return true if value is undefined', function () {
       var obj = {}
 
-      assert(_.isUndefined(undefined))
-      assert(!_.isUndefined(1))
-      assert(_.isUndefined())
-      assert(!_.isUndefined(true))
-      assert(!_.isUndefined(''))
-      assert(!_.isUndefined({}))
-      assert(_.isUndefined(void 0))
-      assert(_.isUndefined(obj.foo))
+      expect(_.isUndefined(undefined)).ok()
+      expect(!_.isUndefined(1)).ok()
+      expect(_.isUndefined()).ok()
+      expect(!_.isUndefined(true)).ok()
+      expect(!_.isUndefined('')).ok()
+      expect(!_.isUndefined({})).ok()
+      expect(_.isUndefined(void 0)).ok()
+      expect(_.isUndefined(obj.foo)).ok()
     })
   })
 
@@ -59,8 +59,8 @@ describe('Checkers', function () {
         return _.isArguments(_.toArray(arguments))
       }
 
-      assert(foo(1, 2, 3))
-      assert(!bar(1, 2, 3))
+      expect(foo(1, 2, 3)).ok()
+      expect(!bar(1, 2, 3)).ok()
     })
 
     it('should work with no arguments', function () {
@@ -72,43 +72,43 @@ describe('Checkers', function () {
         return _.isArguments(_.toArray(arguments))
       }
 
-      assert(foo())
-      assert(!bar())
+      expect(foo()).ok()
+      expect(!bar()).ok()
     })
   })
 
   describe('#isEmpty()', function () {
     it('should return true if the array is empty', function () {
-      assert(_.isEmpty([]))
-      assert(_.isEmpty(null))
-      assert(!_.isEmpty([1]))
-      assert(!_.isEmpty([undefined]))
+      expect(_.isEmpty([])).ok()
+      expect(_.isEmpty(null)).ok()
+      expect(!_.isEmpty([1])).ok()
+      expect(!_.isEmpty([undefined])).ok()
     })
 
     it('should return true if the object is empty', function () {
-      assert(_.isEmpty({}))
-      assert(!_.isEmpty({ foo: 'bar' }))
-      assert(!_.isEmpty({ foo: undefined }))
+      expect(_.isEmpty({})).ok()
+      expect(!_.isEmpty({ foo: 'bar' })).ok()
+      expect(!_.isEmpty({ foo: undefined })).ok()
     })
 
     it('should return true if the string is empty', function () {
-      assert(_.isEmpty(''))
-      assert(!_.isEmpty('a'))
+      expect(_.isEmpty('')).ok()
+      expect(!_.isEmpty('a')).ok()
     })
 
     it('should return true for objects only if it is a iterable', function () {
-      assert(_.isEmpty(2))
-      assert(_.isEmpty(/foo/))
+      expect(_.isEmpty(2)).ok()
+      expect(_.isEmpty(/foo/)).ok()
     })
   })
 
   describe('#isString()', function () {
     it('should return true if value is a string', function () {
-      assert(_.isString(''))
-      assert(!_.isString(undefined))
-      assert(!_.isString([]))
-      assert(!_.isString(true))
-      assert(!_.isString(1))
+      expect(_.isString('')).ok()
+      expect(!_.isString(undefined)).ok()
+      expect(!_.isString([])).ok()
+      expect(!_.isString(true)).ok()
+      expect(!_.isString(1)).ok()
     })
   })
 })
