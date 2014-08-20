@@ -243,9 +243,9 @@ describe('Lists', function () {
     it('should concat all arrays from the list', function () {
       var a = [1, 2, 3]
         , b = [4, 5, 6]
-        , c = [a, b]
 
-      expect(_.concatAll(c)).to.eql([1 ,2, 3, 4, 5, 6])
+      expect(_.concatAll(a, b)).to.eql([1 ,2, 3, 4, 5, 6])
+      expect(_.concatAll([1], [2], [3])).to.eql([1 ,2, 3])
     })
   })
 })
