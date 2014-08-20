@@ -54,11 +54,11 @@ describe('Checkers', function () {
 
   describe('#isArguments()', function () {
     it('should return true if value is arguments object', function () {
-      function foo (a, b, c) {
+      function foo () {
         return _.isArguments(arguments)
       }
 
-      function bar (a, b, c) {
+      function bar () {
         return _.isArguments(_.toArray(arguments))
       }
 
