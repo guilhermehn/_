@@ -1,7 +1,10 @@
+/*globals describe, it*/
 var _ = require('../')
   , expect = require('expect.js')
 
 describe('_', function () {
+  'use strict';
+
   it('should work', function () {
     var albums = [
       { artist: 'Exodus', name: 'Bonded By Blood' },

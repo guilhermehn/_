@@ -1,7 +1,10 @@
+/*globals describe, it*/
 var _ = require('../')
   , expect = require('expect.js')
 
 describe('Checkers', function () {
+  'use strict';
+
   describe('#isEven()', function () {
     it('should return true if number is even', function () {
       expect(_.isEven(2)).ok()

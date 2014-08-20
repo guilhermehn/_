@@ -1,7 +1,10 @@
+/*globals describe, it, beforeEach*/
 var _ = require('../')
   , expect = require('expect.js')
 
 describe('Lists', function () {
+  'use strict';
+
   describe('#map()', function () {
     var list, mapped
 
@@ -61,7 +64,7 @@ describe('Lists', function () {
       var list = [1, 2, 3]
         , listx = []
 
-      _.forEach(function (item, i, xs) {
+      _.forEach(function (item) {
         listx[listx.length] = item.toString()
       }, list)
 
@@ -123,8 +126,6 @@ describe('Lists', function () {
 
   describe('#every()', function () {
     it('should return true if every callback execution returns true', function () {
-      var list = [1, 2, 3]
-
       expect(_.every(function (item) {
         return item > 0
       })).ok()
