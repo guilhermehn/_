@@ -247,4 +247,10 @@ describe('Lists', function () {
       expect(_.concatAll([1], [2], [3])).to.eql([1 ,2, 3])
     })
   })
+
+  describe('#compact()', function () {
+    it('should return all non-falsy values from the list', function () {
+      expect(_.compact([1, 0, '', false, null, 2, 3, undefined, NaN])).to.eql([1, 2, 3])
+    })
+  })
 })
