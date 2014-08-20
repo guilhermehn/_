@@ -49,3 +49,27 @@ describe('_.filter() use cases', function () {
     })
   })
 })
+
+describe('_.curry() use cases', function () {
+  function foo (a, b, c) {
+    return [a, b, c]
+  }
+
+  it('should work with async functions', function (done) {
+    var _foo = _.curry(foo, 3)
+      , timeout = _.curry(setTimeout, _, 100)
+
+    timeout(function () {
+      _foo = _foo(1)
+
+      timeout(function () {
+        _foo = _foo(2)
+
+        timeout(function () {
+          expect(_foo(3)).to.eql([1, 2, 3])
+          done()
+        })
+      })
+    })
+  })
+})
