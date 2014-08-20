@@ -1,7 +1,10 @@
+/*globals describe, it*/
 var _ = require('../')
   , expect = require('expect.js')
 
 describe('Functions', function () {
+  'use strict';
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined)

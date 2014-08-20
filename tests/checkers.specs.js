@@ -1,7 +1,10 @@
+/*globals describe, it*/
 var _ = require('../')
   , expect = require('expect.js')
 
 describe('Checkers', function () {
+  'use strict';
+
   describe('#isEven()', function () {
     it('should return true if number is even', function () {
       expect(_.isEven(2)).ok()
@@ -51,11 +54,11 @@ describe('Checkers', function () {
 
   describe('#isArguments()', function () {
     it('should return true if value is arguments object', function () {
-      function foo (a, b, c) {
+      function foo () {
         return _.isArguments(arguments)
       }
 
-      function bar (a, b, c) {
+      function bar () {
         return _.isArguments(_.toArray(arguments))
       }
 

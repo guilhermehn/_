@@ -1,7 +1,10 @@
+/*globals describe, it*/
 var _ = require('../')
   , expect = require('expect.js')
 
 describe('Operations', function () {
+  'use strict';
+
   describe('#sum()', function () {
     it('should sum properly', function () {
       expect(_.sum(1, 2)).to.be(3)
@@ -11,6 +14,7 @@ describe('Operations', function () {
   describe('#sumAll()', function () {
     it('should sum all the items from the list', function () {
       expect(_.sumAll([1, 2, 3])).to.be(6)
+      expect(_.sumAll([4, 5, 6])).to.be(15)
     })
 
     it('should skip non numbers', function () {
