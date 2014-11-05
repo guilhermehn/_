@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
-var files = ['index.js', 'lib/*.js'];
+var files = ['index.js', 'lib/*.js', 'tests/*.js'];
 
 gulp.task('default', function () {
   return gulp.src(files)
