@@ -260,4 +260,14 @@ describe('Lists', function () {
       expect(_.compact([1, 0, '', false, null, 2, 3, undefined, NaN])).to.eql([1, 2, 3]);
     });
   });
+
+  describe('#rest()', function () {
+    it('should return all but the first item from the list', function () {
+      expect(_.rest([1, 2, 3])).to.eql([2, 3]);
+    });
+
+    it('should work with empty lists', function () {
+      expect(_.rest([])).to.eql([]);
+    });
+  });
 });
