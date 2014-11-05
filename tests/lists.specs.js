@@ -250,8 +250,8 @@ describe('Lists', function () {
       var a = [1, 2, 3];
       var b = [4, 5, 6];
 
-      expect(_.concatAll(a, b)).to.eql([1 ,2, 3, 4, 5, 6]);
-      expect(_.concatAll([1], [2], [3])).to.eql([1 ,2, 3]);
+      expect(_.concatAll(a, b)).to.eql([1, 2, 3, 4, 5, 6]);
+      expect(_.concatAll([1], [2], [3])).to.eql([1, 2, 3]);
     });
   });
 

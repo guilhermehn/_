@@ -71,8 +71,6 @@ describe('_.filter() use cases:', function () {
 });
 
 describe('_.curry() use cases', function () {
-  'use strict';
-
   function foo (a, b, c) {
     return [a, b, c];
   }
