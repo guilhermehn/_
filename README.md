@@ -5,22 +5,22 @@
 Functional utils. *Heavily inspired by [Lodash](http://lodash.com/).*
 
 ```javascript
-var _ = require('fundash')
+var _ = require('fundash');
 
-    // get all the even numbers from the list
-    getEvens = _.filter(_.isEven)
+// get all the even numbers from the list
+var getEvens = _.filter(_.isEven)
 
-    // double each number from the list
-  , doubleNumbers = _.map(_.double)
+// double each number from the list
+var doubleNumbers = _.map(_.double)
 
-    // sum all the numbers from the list
-  , sum = _.partial(_.reduce(_.sum), _, 0)
+// sum all the numbers from the list
+var sum = _.partial(_.reduce(_.sum), _, 0)
 
-  , numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-sum(
-    doubleNumbers(
-        getEvens(numbers))) // [4, 8, 12, 16] -> 40
+(sum
+    (doubleNumbers
+        (getEvens(numbers)))) // [4, 8, 12, 16] -> 40
 
 // or do the right way
 var sumDoubleEvens = _.compose(sum, doubleNumbers, getEvents)
