@@ -2,7 +2,7 @@
   "name": "fundash",
   "version": "0.2.0",
   "description": "Functional utils",
-  "main": "index.js",
+  "main": "fundash.js",
   "scripts": {
     "test": "make tests"
   },
