@@ -1,8 +1,8 @@
-#fundash#
+#fundash
 
 [![Build Status](https://travis-ci.org/guilhermehn/fundash.svg?branch=master)](https://travis-ci.org/guilhermehn/fundash)
 
-Functional utils. *Heavily inspired by [Lodash](http://lodash.com/).*
+>Functional utils. *Heavily inspired by [Lodash](http://lodash.com/).*
 
 ```javascript
 var _ = require('fundash');
@@ -759,9 +759,5 @@ Arguments:
     _.isString(null)  // false
 
 ***
-
-## TODO
-- [x] Publish to NPM
-- [ ] Complete API docs
-- [ ] Make wiki
-- [ ] More functions (Yay!)
+##License
+MIT
