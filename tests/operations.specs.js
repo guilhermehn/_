@@ -86,4 +86,13 @@ describe('Operations', function () {
       expect(_.min([])).to.be(Infinity);
     });
   });
+
+  describe('#square()', function () {
+    it('should return the number squared', function () {
+      expect(_.square(2)).to.be(4);
+      expect(_.square(-2)).to.be(4);
+      expect(_.square(0)).to.be(0);
+      expect(_.square(12)).to.be(144);
+    });
+  });
 });
