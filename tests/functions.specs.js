@@ -170,4 +170,16 @@ describe('Functions', function () {
       expect(addOneOnce(4)).to.eql(3);
     });
   });
+
+  describe('#truty()', function () {
+    it('should return if the object is truty', function () {
+      expect(_.truty(true)).to.ok();
+      expect(_.truty(1)).to.ok();
+      expect(_.truty(0)).to.not.ok();
+      expect(_.truty(null)).to.not.ok();
+      expect(_.truty(false)).to.not.ok();
+      expect(_.truty()).to.not.ok();
+      expect(_.truty('')).to.not.ok();
+    });
+  });
 });
