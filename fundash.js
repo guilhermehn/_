@@ -99,6 +99,10 @@
     return type === 'string' || (value && type === 'object' && toString.call(value) === stringClass) || false;
   }
 
+  function isRegExp (value) {
+    return (isObject(value) && toString.call(value) === regexpClass) || false;
+  }
+
   function isEven (a) {
     return a % 2 === 0;
   }
@@ -469,6 +473,7 @@
   _.isArguments = isArguments;
   _.isEmpty = isEmpty;
   _.isString = isString;
+  _.isRegExp = isRegExp;
   _.isEven = isEven;
   _.isOdd = isOdd;
   _.once = once;

@@ -117,6 +117,15 @@ describe('Functions', function () {
       expect(!_.isString(1)).ok();
     });
   });
+
+  describe('#isRegExp()', function () {
+    it('should return true if the value is a regexp object', function () {
+      expect(_.isRegExp(/abc/)).to.ok();
+      expect(_.isRegExp('/abc/')).to.not.ok();
+      expect(_.isRegExp()).to.not.ok();
+    });
+  });
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined);
