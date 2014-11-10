@@ -48,6 +48,14 @@
    * Return true if the `value` is undefined
    * @param  {*}  value
    * @return {Boolean}
+   * @example
+   *
+   * var foo = 'bar';
+   * isUndefined(foo);
+   * // => false
+   *
+   * isUndefined();
+   * // => true
    */
   function isUndefined (value) {
     return typeof value === 'undefined';
