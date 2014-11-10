@@ -81,6 +81,18 @@
     return type === 'number' || (value && type === 'object' && toString.call(value) === numberClass) || false;
   }
 
+  /**
+   * Return true if the `value` is a Function
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * isFunction(function () {});
+   * // => true
+   *
+   * isFunction('function');
+   * // => false
+   */
   function isFunction (value) {
     return typeof value === 'function';
   }
