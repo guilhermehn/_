@@ -61,6 +61,21 @@
     return typeof value === 'undefined';
   }
 
+  /**
+   * Return true if the `value` is Number
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * isNumber(1);
+   * // => true
+   *
+   * isNumber(NaN);
+   * // => true
+   *
+   * isNumber('1');
+   * // => false
+   */
   function isNumber (value) {
     var type = typeof value;
     return type === 'number' || (value && type === 'object' && toString.call(value) === numberClass) || false;
