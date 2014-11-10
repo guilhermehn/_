@@ -126,6 +126,24 @@ describe('Functions', function () {
     });
   });
 
+  describe('#isNull()', function () {
+    it('should return true if the value is `null`', function () {
+      expect(_.isNull(null)).to.ok();
+      expect(_.isNull(false)).to.not.ok();
+      expect(_.isNull(true)).to.not.ok();
+      expect(_.isNull()).to.not.ok();
+    });
+  });
+
+  describe('#isNaN()', function () {
+    it('should return true if the value is NaN', function () {
+      expect(_.isNaN(NaN)).to.ok();
+      expect(_.isNaN(1)).to.not.ok();
+      expect(_.isNaN(true)).to.not.ok();
+      expect(_.isNaN()).to.not.ok();
+    });
+  });
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined);
