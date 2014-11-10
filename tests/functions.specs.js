@@ -52,36 +52,30 @@ describe('Functions', function () {
   });
 
   describe('#isArguments()', function () {
+    function foo () {
+      return _.isArguments(arguments);
+    }
+
+    function bar () {
+      return _.isArguments(_.toArray(arguments));
+    }
+
+    function exposeArgs () {
+      return arguments;
+    }
+
     it('should return true if value is arguments object', function () {
-      function foo () {
-        return _.isArguments(arguments);
-      }
-
-      function bar () {
-        return _.isArguments(_.toArray(arguments));
-      }
-
-      function exposeArgs () {
-        return arguments;
-      }
-
       expect(foo(1, 2, 3)).ok();
       expect(bar(1, 2, 3)).not.ok();
 
       expect(_.isArguments(exposeArgs(1, 2, 3))).ok();
     });
 
-    it('should work with no arguments', function () {
-      function foo () {
-        return _.isArguments(arguments);
-      }
-
-      function bar () {
-        return _.isArguments(_.toArray(arguments));
-      }
-
+    it('should work with no empty arguments', function () {
       expect(foo()).ok();
       expect(bar()).not.ok();
+
+      expect(_.isArguments(exposeArgs())).ok();
     });
   });
 
