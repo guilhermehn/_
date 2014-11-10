@@ -2,6 +2,8 @@
   // Main object
   var _ = {};
 
+  var MAX_SAFE_INTEGER = Math.pow(2, 53) - 1;
+
   var argsClass = '[object Arguments]';
   var arrayClass = '[object Array]';
   var boolClass = '[object Boolean]';
@@ -34,7 +36,7 @@
   var nativeMap = Array.prototype.map;
   var nativeEvery = Array.prototype.every;
   var nativeSome = Array.prototype.some;
-  var toString = Object.prototype.toString;
+  var toString = objProto.toString;
 
   function toArray (args) {
     return slice.call(args);
@@ -67,7 +69,8 @@
   }
 
   function isArguments (value) {
-    return value && typeof value === 'object' && typeof value.length === 'number' && objProto.hasOwnProperty.call(value, 'callee') && !objProto.propertyIsEnumerable.call(value, 'callee') || false;
+    var length = (value && typeof value === 'object') ? value.length : undefined;
+    return ((isNumber(length) && length > -1 && length < MAX_SAFE_INTEGER) && toString.call(value) === argsClass) || false;
   }
 
   function isEmpty (value) {
