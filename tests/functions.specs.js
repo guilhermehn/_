@@ -31,6 +31,8 @@ describe('Functions', function () {
   describe('#isObject()', function () {
     it('should return true if value is a object', function () {
       expect(_.isObject({})).ok();
+      expect(_.isObject([])).ok();
+      expect(_.isObject('')).not.ok();
     });
   });
 
@@ -79,11 +81,11 @@ describe('Functions', function () {
 
   describe('#isArray()', function () {
     it('should return true if the value is an Array', function () {
-      expect(_.isArray([])).to.ok();
-      expect(_.isArray('asdf')).to.not.ok();
-      expect(_.isArray(true)).to.not.ok();
-      expect(_.isArray(0)).to.not.ok();
-      expect(_.isArray({})).to.not.ok();
+      expect(_.isArray([])).ok();
+      expect(_.isArray('asdf')).not.ok();
+      expect(_.isArray(true)).not.ok();
+      expect(_.isArray(0)).not.ok();
+      expect(_.isArray({})).not.ok();
     });
   });
 
@@ -129,46 +131,46 @@ describe('Functions', function () {
 
   describe('#isRegExp()', function () {
     it('should return true if the value is a regexp object', function () {
-      expect(_.isRegExp(/abc/)).to.ok();
-      expect(_.isRegExp('/abc/')).to.not.ok();
-      expect(_.isRegExp()).to.not.ok();
+      expect(_.isRegExp(/abc/)).ok();
+      expect(_.isRegExp('/abc/')).not.ok();
+      expect(_.isRegExp()).not.ok();
     });
   });
 
   describe('#isNull()', function () {
     it('should return true if the value is `null`', function () {
-      expect(_.isNull(null)).to.ok();
-      expect(_.isNull(false)).to.not.ok();
-      expect(_.isNull(true)).to.not.ok();
-      expect(_.isNull()).to.not.ok();
+      expect(_.isNull(null)).ok();
+      expect(_.isNull(false)).not.ok();
+      expect(_.isNull(true)).not.ok();
+      expect(_.isNull()).not.ok();
     });
   });
 
   describe('#isNaN()', function () {
     it('should return true if the value is NaN', function () {
-      expect(_.isNaN(NaN)).to.ok();
-      expect(_.isNaN(1)).to.not.ok();
-      expect(_.isNaN(true)).to.not.ok();
-      expect(_.isNaN()).to.not.ok();
+      expect(_.isNaN(NaN)).ok();
+      expect(_.isNaN(1)).not.ok();
+      expect(_.isNaN(true)).not.ok();
+      expect(_.isNaN()).not.ok();
     });
   });
 
   describe('#isBoolean()', function () {
     it('should return true if the value is NaN', function () {
-      expect(_.isBoolean(true)).to.ok();
-      expect(_.isBoolean(false)).to.ok();
-      expect(_.isBoolean()).to.not.ok();
-      expect(_.isBoolean('true')).to.not.ok();
-      expect(_.isBoolean('false')).to.not.ok();
-      expect(_.isBoolean(1)).to.not.ok();
-      expect(_.isBoolean(0)).to.not.ok();
+      expect(_.isBoolean(true)).ok();
+      expect(_.isBoolean(false)).ok();
+      expect(_.isBoolean()).not.ok();
+      expect(_.isBoolean('true')).not.ok();
+      expect(_.isBoolean('false')).not.ok();
+      expect(_.isBoolean(1)).not.ok();
+      expect(_.isBoolean(0)).not.ok();
     });
   });
 
   describe('#isDate()', function () {
     it('should return true if the value is a Date object', function () {
-      expect(_.isDate(new Date())).to.ok();
-      expect(_.isDate('Mon Nov 10 2014')).to.not.ok();
+      expect(_.isDate(new Date())).ok();
+      expect(_.isDate('Mon Nov 10 2014')).not.ok();
     });
   });
 
@@ -176,13 +178,13 @@ describe('Functions', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined);
 
-      expect(partialSum(1)).to.be(2);
+      expect(partialSum(1)).be(2);
     });
 
     it('should accept module global for skipping arguments', function () {
       var partialSum = _.partial(_.sum, _, 1);
 
-      expect(partialSum(1)).to.be(2);
+      expect(partialSum(1)).be(2);
     });
   });
 
@@ -194,8 +196,8 @@ describe('Functions', function () {
 
       var oneTwo = curried(1, 2);
 
-      expect(curried(1)(2)(3)).to.eql([1, 2, 3]);
-      expect(oneTwo(3)).to.eql([1, 2, 3]);
+      expect(curried(1)(2)(3)).eql([1, 2, 3]);
+      expect(oneTwo(3)).eql([1, 2, 3]);
     });
   });
 
@@ -204,11 +206,11 @@ describe('Functions', function () {
       var addAndDouble = _.compose(_.double, _.inc);
       var addAndDoubleLists = _.map(addAndDouble);
 
-      expect(addAndDouble(1)).to.be(4);
-      expect(addAndDouble(2)).to.be(6);
-      expect(addAndDouble(3)).to.be(8);
+      expect(addAndDouble(1)).be(4);
+      expect(addAndDouble(2)).be(6);
+      expect(addAndDouble(3)).be(8);
 
-      expect(addAndDoubleLists([1, 2, 3])).to.eql([4, 6, 8]);
+      expect(addAndDoubleLists([1, 2, 3])).eql([4, 6, 8]);
     });
   });
 
@@ -217,11 +219,11 @@ describe('Functions', function () {
       var addAndDouble = _.sequence(_.inc, _.double);
       var addAndDoubleLists = _.map(addAndDouble);
 
-      expect(addAndDouble(1)).to.be(4);
-      expect(addAndDouble(2)).to.be(6);
-      expect(addAndDouble(3)).to.be(8);
+      expect(addAndDouble(1)).be(4);
+      expect(addAndDouble(2)).be(6);
+      expect(addAndDouble(3)).be(8);
 
-      expect(addAndDoubleLists([1, 2, 3])).to.eql([4, 6, 8]);
+      expect(addAndDoubleLists([1, 2, 3])).eql([4, 6, 8]);
     });
   });
 
@@ -235,13 +237,13 @@ describe('Functions', function () {
         foo: 'bar'
       };
 
-      expect(getFoo(obj1)).to.be('foo');
-      expect(getFoo(obj2)).to.be('bar');
+      expect(getFoo(obj1)).be('foo');
+      expect(getFoo(obj2)).be('bar');
     });
 
     it('should return undefined if the object does not contain the specified key', function () {
       var getFoo = _.property('foo');
-      expect(getFoo({})).to.be(undefined);
+      expect(getFoo({})).be(undefined);
     });
   });
 
@@ -256,21 +258,21 @@ describe('Functions', function () {
 
   describe('#range()', function () {
     it('should return a range of numbers', function () {
-      expect(_.range(4)).to.eql([0, 1, 2, 3]);
+      expect(_.range(4)).eql([0, 1, 2, 3]);
     });
 
     it('should accept two arguments, `start` and `end`', function () {
-      expect(_.range(1, 5)).to.eql([1, 2, 3, 4]);
+      expect(_.range(1, 5)).eql([1, 2, 3, 4]);
     });
 
     it('should accept a `step` argument', function () {
-      expect(_.range(2, -2, -1)).to.eql([2, 1, 0, -1]);
+      expect(_.range(2, -2, -1)).eql([2, 1, 0, -1]);
 
-      expect(_.range(0, 20, 5)).to.eql([0, 5, 10, 15]);
+      expect(_.range(0, 20, 5)).eql([0, 5, 10, 15]);
     });
 
     it('should return a empty list if `start` is 0', function () {
-      expect(_.range(0)).to.eql([]);
+      expect(_.range(0)).eql([]);
     });
   });
 
@@ -280,15 +282,15 @@ describe('Functions', function () {
         foo: 'bar'
       };
 
-      expect(_.keys(foo)).to.eql(['foo']);
+      expect(_.keys(foo)).eql(['foo']);
     });
 
     it('should return a empty array if value is not a enumerable object', function () {
-      expect(_.keys(1)).to.eql([]);
-      expect(_.keys(undefined)).to.eql([]);
-      expect(_.keys(null)).to.eql([]);
-      expect(_.keys(function () {})).to.eql([]);
-      expect(_.keys('lorem')).to.eql([]);
+      expect(_.keys(1)).eql([]);
+      expect(_.keys(undefined)).eql([]);
+      expect(_.keys(null)).eql([]);
+      expect(_.keys(function () {})).eql([]);
+      expect(_.keys('lorem')).eql([]);
     });
   });
 
@@ -297,15 +299,15 @@ describe('Functions', function () {
     var b = [4, 5, 6];
 
     it('should concat two arrays into one', function () {
-      expect(_.concat(a, b)).to.eql([1, 2, 3, 4, 5, 6]);
+      expect(_.concat(a, b)).eql([1, 2, 3, 4, 5, 6]);
     });
 
     it('should not mutate the arguments', function () {
       var c = _.concat(a, b);
 
-      expect(a).to.eql([1, 2, 3]);
-      expect(b).to.eql([4, 5, 6]);
-      expect(c).to.eql([1, 2, 3, 4, 5, 6]);
+      expect(a).eql([1, 2, 3]);
+      expect(b).eql([4, 5, 6]);
+      expect(c).eql([1, 2, 3, 4, 5, 6]);
     });
   });
 
@@ -337,9 +339,9 @@ describe('Functions', function () {
         foo: 'bar'
       };
 
-      expect(_.has('foo', obj)).to.ok();
-      expect(_.has('foo', new Foo())).to.ok();
-      expect(_.has('foo', {})).to.not.ok();
+      expect(_.has('foo', obj)).ok();
+      expect(_.has('foo', new Foo())).ok();
+      expect(_.has('foo', {})).not.ok();
     });
 
     it('should return a function that checks for the key if not object is passed', function () {
@@ -347,10 +349,10 @@ describe('Functions', function () {
 
       expect(hasFoo({
         foo: 'bar'
-      })).to.ok();
+      })).ok();
 
-      expect(hasFoo({})).to.not.ok();
-      expect(hasFoo(new Foo())).to.ok();
+      expect(hasFoo({})).not.ok();
+      expect(hasFoo(new Foo())).ok();
     });
   });
 
@@ -362,20 +364,20 @@ describe('Functions', function () {
     it('should run only once', function () {
       var addOneOnce = _.once(addOne);
 
-      expect(addOneOnce(2)).to.eql(3);
-      expect(addOneOnce(4)).to.eql(3);
+      expect(addOneOnce(2)).eql(3);
+      expect(addOneOnce(4)).eql(3);
     });
   });
 
   describe('#truthy()', function () {
     it('should return if the object is truthy', function () {
-      expect(_.truthy(true)).to.ok();
-      expect(_.truthy(1)).to.ok();
-      expect(_.truthy(0)).to.not.ok();
-      expect(_.truthy(null)).to.not.ok();
-      expect(_.truthy(false)).to.not.ok();
-      expect(_.truthy()).to.not.ok();
-      expect(_.truthy('')).to.not.ok();
+      expect(_.truthy(true)).ok();
+      expect(_.truthy(1)).ok();
+      expect(_.truthy(0)).not.ok();
+      expect(_.truthy(null)).not.ok();
+      expect(_.truthy(false)).not.ok();
+      expect(_.truthy()).not.ok();
+      expect(_.truthy('')).not.ok();
     });
   });
 });

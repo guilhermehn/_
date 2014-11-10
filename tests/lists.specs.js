@@ -12,19 +12,19 @@ describe('Lists', function () {
     });
 
     it('should map a list to a new list passed through a function', function () {
-      expect(mapped[0]).to.be(2);
+      expect(mapped[0]).be(2);
     });
 
     it('should keep the original list intact', function () {
-      expect(mapped[0]).to.be(2);
-      expect(list[0]).to.be(1);
+      expect(mapped[0]).be(2);
+      expect(list[0]).be(1);
     });
 
     it('should return a map function if no list is passed', function () {
       var doubleList = _.map(_.double);
       var doubled = doubleList(list);
 
-      expect(doubled[0]).to.be(2);
+      expect(doubled[0]).be(2);
     });
   });
 
@@ -37,13 +37,13 @@ describe('Lists', function () {
 
     it('should reduce the list to one value', function () {
       var total = _.reduce(_.sum, list, 0);
-      expect(total).to.be(6);
+      expect(total).be(6);
     });
 
     it('should keep the list intact', function () {
       var total = _.reduce(_.sum, list, 0);
-      expect(total).to.be(6);
-      expect(list[0]).to.be(1);
+      expect(total).be(6);
+      expect(list[0]).be(1);
     });
 
     it('should return a partial applied function if no list is passed', function () {
@@ -51,9 +51,9 @@ describe('Lists', function () {
       var sum = sumReduce(list, 0);
       var sum2 = sumReduce([2, 3, 4], 0);
 
-      expect(sum).to.be(6);
-      expect(sum2).to.be(9);
-      expect(list[0]).to.be(1);
+      expect(sum).be(6);
+      expect(sum2).be(9);
+      expect(list[0]).be(1);
     });
   });
 
@@ -65,13 +65,13 @@ describe('Lists', function () {
     it('should reduce the items from list starting right to left', function () {
       var result = _.reduceRight(first, [1, 2, 3]);
 
-      expect(result).to.be(1);
+      expect(result).be(1);
     });
 
     it('should return a iterator function if no list is passed', function () {
       var getFirst = _.reduceRight(first);
 
-      expect(getFirst([1, 2, 3])).to.be(1);
+      expect(getFirst([1, 2, 3])).be(1);
     });
   });
 
@@ -84,7 +84,7 @@ describe('Lists', function () {
         listx[listx.length] = item.toString();
       }, list);
 
-      expect(listx).to.eql(['1', '2', '3']);
+      expect(listx).eql(['1', '2', '3']);
     });
 
     it('should patial apply the function when no list is passed', function () {
@@ -98,19 +98,19 @@ describe('Lists', function () {
 
       incCounter([1, 2, 3, 4, 5]);
 
-      expect(counter).to.be(5);
+      expect(counter).be(5);
     });
   });
 
   describe('#filter()', function () {
     it('should remove a item from the result if it return false from the function', function () {
-      expect(_.filter(_.isEven, [1, 2, 3])).to.eql([2]);
+      expect(_.filter(_.isEven, [1, 2, 3])).eql([2]);
     });
 
     it('should return a partial applied function if no list is passed', function () {
       var getOdds = _.filter(_.isOdd);
 
-      expect(getOdds([1, 2, 3])).to.eql([1, 3]);
+      expect(getOdds([1, 2, 3])).eql([1, 3]);
     });
 
     it('should not modify the original list', function () {
@@ -118,7 +118,7 @@ describe('Lists', function () {
       var getEvens = _.filter(_.isEven);
 
       getEvens(list);
-      expect(list).to.eql([1, 2, 3, 4]);
+      expect(list).eql([1, 2, 3, 4]);
     });
   });
 
@@ -130,14 +130,14 @@ describe('Lists', function () {
     });
 
     it('should return undefined if no callback returns true', function () {
-      expect(_.some(_.isEven, [1, 3, 5, 7, 9])).to.not.ok();
+      expect(_.some(_.isEven, [1, 3, 5, 7, 9])).not.ok();
     });
 
     it('should not modify the original list', function () {
       var list = [1, 2, 3];
 
       expect(_.some(_.isEven, list)).ok();
-      expect(list).to.eql([1, 2, 3]);
+      expect(list).eql([1, 2, 3]);
     });
   });
 
@@ -155,13 +155,13 @@ describe('Lists', function () {
         return item > 0;
       })).ok();
 
-      expect(list).to.eql([1, 2, 3]);
+      expect(list).eql([1, 2, 3]);
     });
 
     it('should return a partial applied function if no list is passed', function () {
       var allEven = _.every(_.isEven);
 
-      expect(allEven([1, 2])).to.not.ok();
+      expect(allEven([1, 2])).not.ok();
     });
   });
 
@@ -182,7 +182,7 @@ describe('Lists', function () {
     ];
 
     it('should get the respective key from every object of the list', function () {
-      expect(_.pluck('foo', objs)).to.eql(['foo', 'bar']);
+      expect(_.pluck('foo', objs)).eql(['foo', 'bar']);
     });
 
     it('should return "undefined" if the object does not contain the key', function () {
@@ -192,13 +192,13 @@ describe('Lists', function () {
 
       var foos = _.pluck('foo', objs);
 
-      expect(foos[2]).to.be(undefined);
+      expect(foos[2]).be(undefined);
     });
 
     it('should return a partial applied function if no list is passed', function () {
       var getFoos = _.pluck('foo');
 
-      expect(getFoos(objs)).to.eql(['foo', 'bar', undefined]);
+      expect(getFoos(objs)).eql(['foo', 'bar', undefined]);
     });
   });
 
@@ -206,23 +206,23 @@ describe('Lists', function () {
     it('should take the items from the corresponding indexes', function () {
       var list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-      expect(_.replace([0, 2, 4], list)).to.eql([1, 3, 5]);
+      expect(_.replace([0, 2, 4], list)).eql([1, 3, 5]);
     });
 
     it('should return undefined when index is out of bounds', function () {
       var list = [1, 2, 3];
 
-      expect(_.replace([0, 4], list)).to.eql([1, undefined]);
+      expect(_.replace([0, 4], list)).eql([1, undefined]);
     });
   });
 
   describe('#first()', function () {
     it('should return the first item from the list', function () {
-      expect(_.first([1, 2, 3])).to.be(1);
+      expect(_.first([1, 2, 3])).be(1);
     });
 
     it('should return undefined if the list is empty', function () {
-      expect(_.first([])).to.be(undefined);
+      expect(_.first([])).be(undefined);
     });
 
     it('should not return the reference for the value', function () {
@@ -231,8 +231,8 @@ describe('Lists', function () {
 
       first += 1;
 
-      expect(first).to.be(2);
-      expect(list[0]).to.be(1);
+      expect(first).be(2);
+      expect(list[0]).be(1);
     });
   });
 
@@ -248,17 +248,17 @@ describe('Lists', function () {
 
   describe('#indexOf()', function () {
     it('should return the index of the first occurence of the value in the list', function () {
-      expect(_.indexOf(2, [1, 2, 3, 2])).to.be(1);
+      expect(_.indexOf(2, [1, 2, 3, 2])).be(1);
 
       var obj = {};
-      expect(_.indexOf(obj, [obj])).to.be(0);
+      expect(_.indexOf(obj, [obj])).be(0);
 
       var firstObj = _.indexOf(obj);
-      expect(firstObj([1, obj, 2])).to.be(1);
+      expect(firstObj([1, obj, 2])).be(1);
     });
 
     it('should return -1 if the list does not contain the value', function () {
-      expect(_.indexOf(4, [1, 2, 3])).to.be(-1);
+      expect(_.indexOf(4, [1, 2, 3])).be(-1);
     });
   });
 
@@ -267,24 +267,24 @@ describe('Lists', function () {
       var a = [1, 2, 3];
       var b = [4, 5, 6];
 
-      expect(_.concatAll(a, b)).to.eql([1, 2, 3, 4, 5, 6]);
-      expect(_.concatAll([1], [2], [3])).to.eql([1, 2, 3]);
+      expect(_.concatAll(a, b)).eql([1, 2, 3, 4, 5, 6]);
+      expect(_.concatAll([1], [2], [3])).eql([1, 2, 3]);
     });
   });
 
   describe('#compact()', function () {
     it('should return all non-falsy values from the list', function () {
-      expect(_.compact([1, 0, '', false, null, 2, 3, undefined, NaN])).to.eql([1, 2, 3]);
+      expect(_.compact([1, 0, '', false, null, 2, 3, undefined, NaN])).eql([1, 2, 3]);
     });
   });
 
   describe('#rest()', function () {
     it('should return all but the first item from the list', function () {
-      expect(_.rest([1, 2, 3])).to.eql([2, 3]);
+      expect(_.rest([1, 2, 3])).eql([2, 3]);
     });
 
     it('should work with empty lists', function () {
-      expect(_.rest([])).to.eql([]);
+      expect(_.rest([])).eql([]);
     });
   });
 });

@@ -35,22 +35,22 @@ describe('_.filter() use cases:', function () {
     var list = [1, '1', '2', 2, '3', 3];
     var list2 = [1, 2, 3];
     it('should filter strings from the list', function () {
-      expect(filterStrings(list)).to.eql([1, 2, 3]);
-      expect(filterStrings(list2)).to.eql([]);
+      expect(filterStrings(list)).eql([1, 2, 3]);
+      expect(filterStrings(list2)).eql([]);
     });
 
     it('should work with empty lists', function () {
-      expect(filterStrings([])).to.eql([]);
+      expect(filterStrings([])).eql([]);
     });
   });
 
   describe('onlyMajorAge', function () {
     it('should filter collection for persons of age over 18', function () {
-      expect(onlyMajorAge(persons).length).to.be(2);
+      expect(onlyMajorAge(persons).length).be(2);
     });
 
     it('should work with empty collection', function () {
-      expect(onlyMajorAge([])).to.eql([]);
+      expect(onlyMajorAge([])).eql([]);
     });
 
     it('should work even if person dont have age prop', function () {
@@ -64,7 +64,7 @@ describe('_.filter() use cases:', function () {
         }
       ];
 
-      expect(onlyMajorAge(persons)).to.eql([persons[0]]);
+      expect(onlyMajorAge(persons)).eql([persons[0]]);
     });
   });
 });
@@ -85,7 +85,7 @@ describe('_.curry() use cases', function () {
         bar = bar(2);
 
         timeout(function () {
-          expect(bar(3)).to.eql([1, 2, 3]);
+          expect(bar(3)).eql([1, 2, 3]);
           done();
         });
       });
