@@ -141,6 +141,27 @@
     return ((isNumber(length) && length > -1 && length < MAX_SAFE_INTEGER) && toString.call(value) === argsClass) || false;
   }
 
+  /**
+   * Return true if the `value` is an empty object
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * isEmpty({});
+   * // => true
+   *
+   * isEmpty([]);
+   * // => true
+   *
+   * isEmpty(null);
+   * // => true
+   *
+   * isEmpty([1]);
+   * // => false
+   *
+   * isEmpty([undefined]);
+   * // => false
+   */
   function isEmpty (value) {
     var result = true;
 
