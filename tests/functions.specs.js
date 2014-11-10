@@ -165,6 +165,13 @@ describe('Functions', function () {
     });
   });
 
+  describe('#isDate()', function () {
+    it('should return true if the value is a Date object', function () {
+      expect(_.isDate(new Date)).to.ok();
+      expect(_.isDate('Mon Nov 10 2014')).to.not.ok();
+    });
+  });
+
   describe('#partial()', function () {
     it('should return a function with partial applied arguments', function () {
       var partialSum = _.partial(_.sum, 1, undefined);

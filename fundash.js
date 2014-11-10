@@ -123,6 +123,10 @@
     return (value === true || value === false || value && typeof value === 'object' && toString.call(value) === boolClass) || false;
   }
 
+  function isDate (value) {
+    return (value && typeof value === 'object' && toString.call(value) === dateClass) || false;
+  }
+
   function once (fn, context) {
     var result;
 
@@ -501,6 +505,7 @@
   _.isNull = isNull;
   _.isNaN = isNaN;
   _.isBoolean = isBoolean;
+  _.isDate = isDate;
   _.once = once;
   _.property = property;
   _.curry = curry;
