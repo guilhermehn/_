@@ -58,6 +58,24 @@ describe('Lists', function () {
     });
   });
 
+  describe('#reduceRight()', function () {
+    function first (acc, item) {
+      return item;
+    }
+
+    it('should reduce the items from list starting right to left', function () {
+      var result = _.reduceRight(first, [1, 2, 3]);
+
+      expect(result).to.be(1);
+    });
+
+    it('should return a iterator function if no list is passed', function () {
+      var getFirst = _.reduceRight(first);
+
+      expect(getFirst([1, 2, 3])).to.be(1);
+    });
+  });
+
   describe('#forEach()', function () {
     it('should run a function for every item on list', function () {
       var list = [1, 2, 3];

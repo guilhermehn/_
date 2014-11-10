@@ -36,6 +36,7 @@
   var nativeMap = Array.prototype.map;
   var nativeEvery = Array.prototype.every;
   var nativeSome = Array.prototype.some;
+  var nativeIsArray = Array.isArray;
   var toString = objProto.toString;
 
   function toArray (args) {
@@ -325,6 +326,15 @@
     };
   }
 
+  function reduceRight (iterator, list, start) {
+    if (isUndefined(list)) {
+      return reduceRight.bind(null, iterator);
+    }
+
+    list = nativeIsArray(list) && list.reverse() || list;
+    return reduce(iterator, list, start);
+  }
+
   /**
    * Iterates over a `list` and return a new array based on the result of the `iterator` function
    * If no `list` is passed it returns a function that runs the `iterator` over the elements of any list passed to it
@@ -483,7 +493,7 @@
   _.isFunction = isFunction;
   _.isObject = isObject;
   _.isArguments = isArguments;
-  _.isArray = Array.isArray;
+  _.isArray = nativeIsArray;
   _.isEmpty = isEmpty;
   _.isString = isString;
   _.isRegExp = isRegExp;
@@ -508,6 +518,7 @@
   _.forEach = forEach;
   _.filter = filter;
   _.reduce = reduce;
+  _.reduceRight = reduceRight;
   _.map = map;
   _.every = every;
   _.some = some;
