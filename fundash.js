@@ -483,6 +483,7 @@
   _.isFunction = isFunction;
   _.isObject = isObject;
   _.isArguments = isArguments;
+  _.isArray = Array.isArray;
   _.isEmpty = isEmpty;
   _.isString = isString;
   _.isRegExp = isRegExp;

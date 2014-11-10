@@ -78,6 +78,16 @@ describe('Functions', function () {
     });
   });
 
+  describe('#isArray()', function () {
+    it('should return true if the value is an Array', function () {
+      expect(_.isArray([])).to.ok();
+      expect(_.isArray('asdf')).to.not.ok();
+      expect(_.isArray(true)).to.not.ok();
+      expect(_.isArray(0)).to.not.ok();
+      expect(_.isArray({})).to.not.ok();
+    });
+  });
+
   describe('#isEmpty()', function () {
     it('should return true if the array is empty', function () {
       expect(_.isEmpty([])).ok();
