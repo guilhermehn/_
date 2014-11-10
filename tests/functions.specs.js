@@ -167,7 +167,7 @@ describe('Functions', function () {
 
   describe('#isDate()', function () {
     it('should return true if the value is a Date object', function () {
-      expect(_.isDate(new Date)).to.ok();
+      expect(_.isDate(new Date())).to.ok();
       expect(_.isDate('Mon Nov 10 2014')).to.not.ok();
     });
   });
