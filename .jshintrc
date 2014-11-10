@@ -45,5 +45,6 @@
 
   // Environments
   "devel"         : true,     // Development/debugging (alert, confirm, etc)
-  "node"          : true      // Node.js
+  "node"          : true,     // Node.js
+  "mocha"         : true
 }

@@ -1,4 +1,3 @@
-/*globals describe, it*/
 var expect = require('expect.js');
 var _ = require('../');
 
