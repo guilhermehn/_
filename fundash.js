@@ -119,6 +119,10 @@
     return isNumber(value) && value !== +value;
   }
 
+  function isBoolean (value) {
+    return (value === true || value === false || value && typeof value === 'object' && toString.call(value) === boolClass) || false;
+  }
+
   function once (fn, context) {
     var result;
 
@@ -486,6 +490,7 @@
   _.isOdd = isOdd;
   _.isNull = isNull;
   _.isNaN = isNaN;
+  _.isBoolean = isBoolean;
   _.once = once;
   _.property = property;
   _.curry = curry;
