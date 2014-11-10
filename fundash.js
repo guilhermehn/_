@@ -111,6 +111,10 @@
     return (a % 2) > 0;
   }
 
+  function isNull (value) {
+    return value === null;
+  }
+
   function once (fn, context) {
     var result;
 
@@ -476,6 +480,7 @@
   _.isRegExp = isRegExp;
   _.isEven = isEven;
   _.isOdd = isOdd;
+  _.isNull = isNull;
   _.once = once;
   _.property = property;
   _.curry = curry;
