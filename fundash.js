@@ -28,6 +28,8 @@
 
   var objProto = Object.prototype;
 
+  var hasOwnProperty = Object.hasOwnProperty;
+
   // Native methods
   var nativeForEach = Array.prototype.forEach;
   var nativeFilter = Array.prototype.filter;
@@ -222,6 +224,14 @@
     }
 
     return !fn;
+  }
+
+  function has (key, object) {
+    if (isUndefined(object)) {
+      return has.bind(null, key);
+    }
+
+    return object ? hasOwnProperty.call(object, key) : false;
   }
 
   function range (start, end, step) {
@@ -514,6 +524,7 @@
   _.sequence = sequence;
   _.indexOf = indexOf;
   _.not = not;
+  _.has = has;
   _.range = range;
   _.keys = keys;
   _.truthy = truthy;

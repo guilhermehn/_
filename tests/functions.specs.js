@@ -327,6 +327,33 @@ describe('Functions', function () {
     });
   });
 
+  describe('#has()', function () {
+    function Foo () {
+      this.foo = 'bar';
+    }
+
+    it('should return true if the object contains the determined key', function () {
+      var obj = {
+        foo: 'bar'
+      };
+
+      expect(_.has('foo', obj)).to.ok();
+      expect(_.has('foo', new Foo())).to.ok();
+      expect(_.has('foo', {})).to.not.ok();
+    });
+
+    it('should return a function that checks for the key if not object is passed', function () {
+      var hasFoo = _.has('foo');
+
+      expect(hasFoo({
+        foo: 'bar'
+      })).to.ok();
+
+      expect(hasFoo({})).to.not.ok();
+      expect(hasFoo(new Foo())).to.ok();
+    });
+  });
+
   describe('#once()', function () {
     function addOne (n) {
       return n + 1;
