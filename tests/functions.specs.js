@@ -5,15 +5,15 @@ describe('Functions', function () {
   describe('#isEven()', function () {
     it('should return true if number is even', function () {
       expect(_.isEven(2)).ok();
-      expect(!_.isEven(3)).ok();
-      expect(!_.isEven(2.456)).ok();
+      expect(_.isEven(3)).not.ok();
+      expect(_.isEven(2.456)).not.ok();
     });
   });
 
   describe('#isOdd()', function () {
     it('should return true if number is odd', function () {
       expect(_.isOdd(3)).ok();
-      expect(!_.isOdd(2)).ok();
+      expect(_.isOdd(2)).not.ok();
     });
   });
 
@@ -41,11 +41,11 @@ describe('Functions', function () {
       var obj = {};
 
       expect(_.isUndefined(undefined)).ok();
-      expect(!_.isUndefined(1)).ok();
+      expect(_.isUndefined(1)).not.ok();
       expect(_.isUndefined()).ok();
-      expect(!_.isUndefined(true)).ok();
-      expect(!_.isUndefined('')).ok();
-      expect(!_.isUndefined({})).ok();
+      expect(_.isUndefined(true)).not.ok();
+      expect(_.isUndefined('')).not.ok();
+      expect(_.isUndefined({})).not.ok();
       expect(_.isUndefined(void 0)).ok();
       expect(_.isUndefined(obj.foo)).ok();
     });
@@ -66,7 +66,7 @@ describe('Functions', function () {
       }
 
       expect(foo(1, 2, 3)).ok();
-      expect(!bar(1, 2, 3)).ok();
+      expect(bar(1, 2, 3)).not.ok();
 
       expect(_.isArguments(exposeArgs(1, 2, 3))).ok();
     });
@@ -81,7 +81,7 @@ describe('Functions', function () {
       }
 
       expect(foo()).ok();
-      expect(!bar()).ok();
+      expect(bar()).not.ok();
     });
   });
 
@@ -109,9 +109,9 @@ describe('Functions', function () {
         foo: 'bar'
       })).not.ok();
 
-      expect(!_.isEmpty({
+      expect(_.isEmpty({
         foo: undefined
-      })).ok();
+      })).not.ok();
     });
 
     it('should return true if the string is empty', function () {
@@ -128,10 +128,10 @@ describe('Functions', function () {
   describe('#isString()', function () {
     it('should return true if value is a string', function () {
       expect(_.isString('')).ok();
-      expect(!_.isString(undefined)).ok();
-      expect(!_.isString([])).ok();
-      expect(!_.isString(true)).ok();
-      expect(!_.isString(1)).ok();
+      expect(_.isString(undefined)).not.ok();
+      expect(_.isString([])).not.ok();
+      expect(_.isString(true)).not.ok();
+      expect(_.isString(1)).not.ok();
     });
   });
 
@@ -257,7 +257,7 @@ describe('Functions', function () {
     it('should convert to array', function () {
       var args = _.toArray(arguments);
 
-      expect(!(arguments instanceof Array)).ok();
+      expect(arguments instanceof Array).not.ok();
       expect(args instanceof Array).ok();
     });
   });
