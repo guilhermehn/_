@@ -9,7 +9,6 @@
   var boolClass = '[object Boolean]';
   var dateClass = '[object Date]';
   var errorClass = '[object Error]';
-  var funcClass = '[object Function]';
   var numberClass = '[object Number]';
   var objectClass = '[object Object]';
   var regexpClass = '[object RegExp]';
