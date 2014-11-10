@@ -97,6 +97,21 @@
     return typeof value === 'function';
   }
 
+  /**
+   * Return true if the `value` is an object
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * isObject({});
+   * // => true
+   *
+   * isObject([]);
+   * // => true
+   *
+   * isObject('');
+   * // => false
+   */
   function isObject (value) {
     // check if the value is the ECMAScript language type of Object
     // http://es5.github.io/#x8
@@ -105,6 +120,22 @@
     return !!(value && objectTypes[typeof value]);
   }
 
+  /**
+   * Return true if the `value` is a `arguments` object
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * isArguments([]);
+   * // => false
+   *
+   * function foo (a, b) {
+   *   return arguments;
+   * }
+   *
+   * isArguments(foo(1, 2));
+   * // => true
+   */
   function isArguments (value) {
     var length = (value && typeof value === 'object') ? value.length : undefined;
     return ((isNumber(length) && length > -1 && length < MAX_SAFE_INTEGER) && toString.call(value) === argsClass) || false;
