@@ -115,6 +115,10 @@
     return value === null;
   }
 
+  function isNaN (value) {
+    return isNumber(value) && value !== +value;
+  }
+
   function once (fn, context) {
     var result;
 
@@ -481,6 +485,7 @@
   _.isEven = isEven;
   _.isOdd = isOdd;
   _.isNull = isNull;
+  _.isNaN = isNaN;
   _.once = once;
   _.property = property;
   _.curry = curry;
