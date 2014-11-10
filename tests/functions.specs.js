@@ -61,8 +61,14 @@ describe('Functions', function () {
         return _.isArguments(_.toArray(arguments));
       }
 
+      function exposeArgs () {
+        return arguments;
+      }
+
       expect(foo(1, 2, 3)).ok();
       expect(!bar(1, 2, 3)).ok();
+
+      expect(_.isArguments(exposeArgs(1, 2, 3))).ok();
     });
 
     it('should work with no arguments', function () {
