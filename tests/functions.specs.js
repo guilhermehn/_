@@ -99,15 +99,15 @@ describe('Functions', function () {
     it('should return true if the array is empty', function () {
       expect(_.isEmpty([])).ok();
       expect(_.isEmpty(null)).ok();
-      expect(!_.isEmpty([1])).ok();
-      expect(!_.isEmpty([undefined])).ok();
+      expect(_.isEmpty([1])).not.ok();
+      expect(_.isEmpty([undefined])).not.ok();
     });
 
     it('should return true if the object is empty', function () {
       expect(_.isEmpty({})).ok();
-      expect(!_.isEmpty({
+      expect(_.isEmpty({
         foo: 'bar'
-      })).ok();
+      })).not.ok();
 
       expect(!_.isEmpty({
         foo: undefined
@@ -116,7 +116,7 @@ describe('Functions', function () {
 
     it('should return true if the string is empty', function () {
       expect(_.isEmpty('')).ok();
-      expect(!_.isEmpty('a')).ok();
+      expect(_.isEmpty('a')).not.ok();
     });
 
     it('should return true for objects only if it is a iterable', function () {
