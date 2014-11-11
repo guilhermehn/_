@@ -51,10 +51,10 @@
    * @example
    *
    * var foo = 'bar';
-   * isUndefined(foo);
+   * _.isUndefined(foo);
    * // => false
    *
-   * isUndefined();
+   * _.isUndefined();
    * // => true
    */
   function isUndefined (value) {
@@ -67,13 +67,13 @@
    * @return {Boolean}
    * @example
    *
-   * isNumber(1);
+   * _.isNumber(1);
    * // => true
    *
-   * isNumber(NaN);
+   * _.isNumber(NaN);
    * // => true
    *
-   * isNumber('1');
+   * _.isNumber('1');
    * // => false
    */
   function isNumber (value) {
@@ -87,10 +87,10 @@
    * @return {Boolean}
    * @example
    *
-   * isFunction(function () {});
+   * _.isFunction(function () {});
    * // => true
    *
-   * isFunction('function');
+   * _.isFunction('function');
    * // => false
    */
   function isFunction (value) {
@@ -103,13 +103,13 @@
    * @return {Boolean}
    * @example
    *
-   * isObject({});
+   * _.isObject({});
    * // => true
    *
-   * isObject([]);
+   * _.isObject([]);
    * // => true
    *
-   * isObject('');
+   * _.isObject('');
    * // => false
    */
   function isObject (value) {
@@ -126,14 +126,14 @@
    * @return {Boolean}
    * @example
    *
-   * isArguments([]);
+   * _.isArguments([]);
    * // => false
    *
    * function foo (a, b) {
    *   return arguments;
    * }
    *
-   * isArguments(foo(1, 2));
+   * _.isArguments(foo(1, 2));
    * // => true
    */
   function isArguments (value) {
@@ -147,19 +147,19 @@
    * @return {Boolean}
    * @example
    *
-   * isEmpty({});
+   * _.isEmpty({});
    * // => true
    *
-   * isEmpty([]);
+   * _.isEmpty([]);
    * // => true
    *
-   * isEmpty(null);
+   * _.isEmpty(null);
    * // => true
    *
-   * isEmpty([1]);
+   * _.isEmpty([1]);
    * // => false
    *
-   * isEmpty([undefined]);
+   * _.isEmpty([undefined]);
    * // => false
    */
   function isEmpty (value) {
@@ -183,39 +183,168 @@
     return result;
   }
 
+  /**
+   * Return true if the `value` is string
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * _.isString('asdf');
+   * // => true
+   *
+   * _.isString(['a', 'b', 'c']);
+   * // => false
+   */
   function isString (value) {
     var type = typeof value;
     return type === 'string' || (value && type === 'object' && toString.call(value) === stringClass) || false;
   }
 
+  /**
+   * Return true if the `value` is a regexp object
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * _.isRegExp(/asdf/);
+   * // => true
+   *
+   * _.isRegExp('/asdf/');
+   * // => false
+   */
   function isRegExp (value) {
     return (isObject(value) && toString.call(value) === regexpClass) || false;
   }
 
-  function isEven (a) {
-    return a % 2 === 0;
+  /**
+   * Return true if the `value` is even
+   * @param  {Number}  value
+   * @return {Boolean}
+   * @example
+   *
+   * _.isEven(2);
+   * // => true
+   *
+   * _.isEven(3);
+   * // => false
+   */
+  function isEven (value) {
+    return value % 2 === 0;
   }
 
-  function isOdd (a) {
-    return (a % 2) > 0;
+  /**
+   * Return true if the `value` is odd
+   * @param  {Number}  value
+   * @return {Boolean}
+   * @example
+   *
+   * _.isOdd(3);
+   * // => true
+   *
+   * _.isOdd(2);
+   * // => false
+   */
+  function isOdd (value) {
+    return (value % 2) > 0;
   }
 
+  /**
+   * Return true if the `value` is null
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * _.isNull(null);
+   * // => true
+   *
+   * _.isNull(undefined);
+   * // => false
+   */
   function isNull (value) {
     return value === null;
   }
 
+  /**
+   * Return true if the `value` is NaN
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * _.isNaN(undefined);
+   * // => true
+   *
+   * _.isNaN(1);
+   * // => false
+   */
   function isNaN (value) {
     return isNumber(value) && value !== +value;
   }
 
+  /**
+   * Return true if the `value` is boolean
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * _.isBoolean(true);
+   * // => true
+   *
+   * _.isBoolean(false);
+   * // => true
+   *
+   * _.isBoolean('true');
+   * // => false
+   */
   function isBoolean (value) {
     return (value === true || value === false || value && typeof value === 'object' && toString.call(value) === boolClass) || false;
   }
 
+  /**
+   * Return true if the `value` is a Date object
+   * @param  {*}  value
+   * @return {Boolean}
+   * @example
+   *
+   * _.isDate(new Date());
+   * // => true
+   *
+   * _.isDate('Tue Nov 11 2014');
+   * // => false
+   */
   function isDate (value) {
     return (value && typeof value === 'object' && toString.call(value) === dateClass) || false;
   }
 
+  /**
+   * Return a function that runs the given function only once.
+   * The next time the function is called it will return the result
+   * from the first execution.
+   *
+   * If a `context` is passed, the `fn` context will be binded to it.
+   * @param  {Function} fn
+   * @param  {*}   context
+   * @return {Function}
+   * @example
+   *
+   * var onceFoo = _.once(function (foo) { return foo + 'bar'; })
+   *
+   * onceFoo('foo');
+   * // => 'foobar'
+   *
+   * onceFoo('bar');
+   * // => 'foobar'
+   *
+   * function Controller () {
+   *   this.type = 'controller';
+   * }
+   *
+   * var controller = new Controller();
+   *
+   * var getType = _.once(function () { return this.type; }, controller);
+   *
+   * getType();
+   * // => 'controller'
+   */
   function once (fn, context) {
     var result;
 
