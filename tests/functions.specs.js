@@ -272,7 +272,7 @@ describe('Functions', function () {
     });
 
     it('should return a empty list if `start` is 0', function () {
-      expect(_.range(0)).eql([]);
+      expect(_.range(0)).be.a(Array);
     });
   });
 
@@ -286,11 +286,11 @@ describe('Functions', function () {
     });
 
     it('should return a empty array if value is not a enumerable object', function () {
-      expect(_.keys(1)).eql([]);
-      expect(_.keys(undefined)).eql([]);
-      expect(_.keys(null)).eql([]);
-      expect(_.keys(function () {})).eql([]);
-      expect(_.keys('lorem')).eql([]);
+      expect(_.keys(1)).be.a(Array);
+      expect(_.keys(undefined)).be.a(Array);
+      expect(_.keys(null)).be.a(Array);
+      expect(_.keys(function () {})).be.a(Array);
+      expect(_.keys('lorem')).be.a(Array);
     });
   });
 
