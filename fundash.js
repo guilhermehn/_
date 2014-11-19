@@ -484,6 +484,31 @@
     return !fn;
   }
 
+  /**
+   * Return true if `object` has the `key`.
+   *
+   * If no `object` is given it returns a function.
+   *
+   * @param  {String}  key
+   * @param  {*}       object
+   * @return {Boolean}
+   * @example
+   *
+   * var obj = {
+   *   a: 1,
+   *   b: 2
+   * };
+   *
+   * _.has('a', obj);
+   * //=> true
+   *
+   * _.has('c', obj);
+   * //=> false
+   *
+   * var hasAkey = _.has('a');
+   * hasAkey(obj);
+   * //=> true
+   */
   function has (key, object) {
     if (isUndefined(object)) {
       return has.bind(null, key);
