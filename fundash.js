@@ -455,6 +455,25 @@
     return indexOf.bind(null, value);
   }
 
+  /**
+   * Return a function that negates the result of `fn`.
+   *
+   * @param  {Function} fn
+   * @return {Boolean}
+   * @example
+   *
+   * function gt (x, y) {
+   *   return x > y;
+   * }
+   *
+   * gt(1, 2);
+   * //=> false
+   *
+   * var lt = _.not(gt);
+   *
+   * lt(1, 2);
+   * //=> true
+   */
   function not (fn) {
     if (isFunction(fn)) {
       return function () {
