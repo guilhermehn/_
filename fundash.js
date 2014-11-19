@@ -424,6 +424,29 @@
     return compose.apply(null, toArray(arguments).reverse());
   }
 
+  /**
+   * Return the index of the first `value` occurence from the `list`.
+   * Returns -1 if the `value`does not exists in the list.
+   *
+   * If no list is given it returns a function curried with the `value`.
+   *
+   * @param  {*} value Value to be found
+   * @param  {Array} list
+   * @return {Number}
+   * @example
+   *
+   * _.indexOf(2, [1, 2, 3]);
+   * //=> 1
+   *
+   * _.indexOf(4, [1, 2, 3]);
+   * //=> -1
+   *
+   * var indexOfTwo = _.indexOf(2);
+   * //=> [Function]
+   *
+   * indexOfTwo([1, 2, 3]);
+   * //=> 1
+   */
   function indexOf (value, list) {
     if (!isUndefined(list)) {
       return list.indexOf(value);
